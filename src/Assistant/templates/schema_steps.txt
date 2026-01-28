@@ -26,15 +26,16 @@ Return a JSON object with this EXACT structure:
 
 CRITICAL RULES:
 1. Return ONLY the JSON object. No text, no explanations, no markdown, no code blocks, no backticks.
-2. Group tables into steps based on dependencies:
+2. EVERY step MUST have at least one module in "modules". Do NOT add steps with empty "modules" (e.g. do not add a step like "No further dependencies" or "Schema complete"). For a single independent module, return exactly one step with that module.
+3. Group tables into steps based on dependencies:
    - Step 1: Tables with NO foreign keys (independent tables)
    - Step 2: Tables that depend only on Step 1 tables
    - Step 3: Tables that depend on Step 1 or Step 2 tables
    - Continue until all tables are assigned
-3. "module": Use the SINGULAR name of the table as the module namespace (e.g., "Product", "StorageLocation", "RecipeItem")
-4. "name": Use singular form matching the module
-5. "table_name": Convert to lowercase, plural, snake_case
-6. "fields": Each field MUST be an object with: name, type, length, null, default, comment
+4. "module": Use the SINGULAR name of the table as the module namespace (e.g., "Product", "StorageLocation", "RecipeItem")
+5. "name": Use singular form matching the module
+6. "table_name": Convert to lowercase, plural, snake_case
+7. "fields": Each field MUST be an object with: name, type, length, null, default, comment
    - DO NOT include: id, created_at, updated_at, created_by, updated_by, active (all auto-generated)
    - NEVER return fields as strings - ALWAYS return objects
    - Field format: {"name": "field_name", "type": "VARCHAR", "length": "255", "null": false, "default": "", "comment": ""}
@@ -45,8 +46,8 @@ CRITICAL RULES:
      * Example: {"name": "type", "type": "ENUM", "length": "'SIMPLE','COMPOSITE','INGREDIENT'", "null": false, "default": "", "comment": ""}
      * WRONG: {"name": "type", "type": "ENUM", "length": "", "comment": "SIMPLE,COMPOSITE,INGREDIENT"} ❌
      * CORRECT: {"name": "type", "type": "ENUM", "length": "'SIMPLE','COMPOSITE','INGREDIENT'", "comment": ""} ✅
-7. Each step should have a clear description explaining what will be created
-8. Try to group related tables in the same step when possible (e.g., recipe, recipe_item, recipe_step together)
+8. Each step should have a clear description explaining what will be created
+9. Try to group related tables in the same step when possible (e.g., recipe, recipe_item, recipe_step together)
 
 Example:
 If schema has: products, storage_locations, storage, recipes, recipe_items
