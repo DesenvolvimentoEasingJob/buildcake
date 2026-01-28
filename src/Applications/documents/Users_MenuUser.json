@@ -1,0 +1,145 @@
+{
+    "module": "Users",
+    "controller": "MenuUser",
+    "controller_modified_time": 1764120603,
+    "generated_at": 1769304756,
+    "documentation": {
+        "module": "Users",
+        "controller": "MenuUser",
+        "endpoints": [
+            {
+                "method": "GET",
+                "path": "\/api\/Users\/MenuUser",
+                "description": "Retorna a lista de MenuUser ativos com base nos filtros fornecidos.",
+                "parameters": [
+                    {
+                        "name": "filters",
+                        "type": "array",
+                        "required": false,
+                        "description": "Filtros para a busca de MenuUser, como por exemplo, status ou tipo.",
+                        "location": "query"
+                    }
+                ],
+                "responses": [
+                    {
+                        "status": 200,
+                        "description": "Lista de MenuUser encontrados ou mensagem informando que nenhum MenuUser foi encontrado.",
+                        "example": {
+                            "data": [
+                                {
+                                    "id": 1,
+                                    "name": "Menu 1",
+                                    "is_active": true
+                                }
+                            ],
+                            "message": "Dados processados com sucesso."
+                        }
+                    }
+                ],
+                "authentication": true,
+                "notes": ""
+            },
+            {
+                "method": "POST",
+                "path": "\/api\/Users\/MenuUser",
+                "description": "Insere um novo MenuUser com os dados fornecidos.",
+                "parameters": [
+                    {
+                        "name": "name",
+                        "type": "string",
+                        "required": true,
+                        "description": "Nome do MenuUser a ser inserido.",
+                        "location": "form"
+                    },
+                    {
+                        "name": "is_active",
+                        "type": "boolean",
+                        "required": false,
+                        "description": "Indica se o MenuUser está ativo ou não.",
+                        "location": "form"
+                    }
+                ],
+                "responses": [
+                    {
+                        "status": 200,
+                        "description": "Dados do MenuUser inserido com sucesso.",
+                        "example": {
+                            "id": 1,
+                            "name": "Menu 1",
+                            "is_active": true
+                        }
+                    }
+                ],
+                "authentication": true,
+                "notes": ""
+            },
+            {
+                "method": "PUT",
+                "path": "\/api\/Users\/MenuUser",
+                "description": "Edita um MenuUser existente com os dados fornecidos.",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "type": "integer",
+                        "required": true,
+                        "description": "ID do MenuUser a ser editado.",
+                        "location": "form"
+                    },
+                    {
+                        "name": "name",
+                        "type": "string",
+                        "required": false,
+                        "description": "Novo nome do MenuUser.",
+                        "location": "form"
+                    },
+                    {
+                        "name": "is_active",
+                        "type": "boolean",
+                        "required": false,
+                        "description": "Indica se o MenuUser deve ser ativo ou não.",
+                        "location": "form"
+                    }
+                ],
+                "responses": [
+                    {
+                        "status": 200,
+                        "description": "Dados do MenuUser editado com sucesso.",
+                        "example": {
+                            "id": 1,
+                            "name": "Menu 1",
+                            "is_active": true
+                        }
+                    }
+                ],
+                "authentication": true,
+                "notes": ""
+            },
+            {
+                "method": "DELETE",
+                "path": "\/api\/Users\/MenuUser",
+                "description": "Remove um ou mais MenuUser com base nos IDs fornecidos.",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "type": "string",
+                        "required": true,
+                        "description": "ID ou IDs do MenuUser a serem removidos, separados por vírgula.",
+                        "location": "form"
+                    }
+                ],
+                "responses": [
+                    {
+                        "status": 200,
+                        "description": "Confirmação da remoção do MenuUser.",
+                        "example": {
+                            "message": "MenuUser removido com sucesso."
+                        }
+                    }
+                ],
+                "authentication": true,
+                "notes": ""
+            }
+        ],
+        "summary": "Gerencia as operações relacionadas aos MenuUsers, incluindo listagem, inserção, edição e remoção."
+    }
+}

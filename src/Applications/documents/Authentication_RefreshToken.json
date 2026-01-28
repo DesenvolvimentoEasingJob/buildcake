@@ -1,0 +1,78 @@
+{
+    "module": "Authentication",
+    "controller": "RefreshToken",
+    "controller_modified_time": 1764108055,
+    "generated_at": 1769304712,
+    "documentation": {
+        "module": "Authentication",
+        "controller": "RefreshToken",
+        "endpoints": [
+            {
+                "method": "POST",
+                "path": "\/api\/Authentication\/RefreshToken",
+                "description": "Atualiza os tokens de acesso e refresh utilizando um refresh token válido.",
+                "parameters": [
+                    {
+                        "name": "refreshToken",
+                        "type": "string",
+                        "required": true,
+                        "description": "O refresh token que será utilizado para gerar novos tokens.",
+                        "location": "body"
+                    },
+                    {
+                        "name": "refresh_token",
+                        "type": "string",
+                        "required": true,
+                        "description": "Alternativa para o parâmetro refreshToken, caso o primeiro não seja fornecido.",
+                        "location": "body"
+                    },
+                    {
+                        "name": "Authorization",
+                        "type": "string",
+                        "required": true,
+                        "description": "Header de autorização que pode conter o refresh token no formato 'Bearer <token>'.",
+                        "location": "header"
+                    }
+                ],
+                "responses": [
+                    {
+                        "status": 200,
+                        "description": "Tokens atualizados com sucesso.",
+                        "example": {
+                            "accessToken": "novo_access_token",
+                            "refreshToken": "novo_refresh_token",
+                            "expiresIn": 86400,
+                            "refreshExpiresIn": 604800,
+                            "tokenType": "Bearer",
+                            "userData": [],
+                            "userAbilityRules": []
+                        }
+                    },
+                    {
+                        "status": 400,
+                        "description": "Refresh token é obrigatório.",
+                        "example": []
+                    },
+                    {
+                        "status": 401,
+                        "description": "Refresh token inválido ou expirado.",
+                        "example": []
+                    },
+                    {
+                        "status": 500,
+                        "description": "Erro ao atualizar a sessão.",
+                        "example": []
+                    },
+                    {
+                        "status": 200,
+                        "description": "Usuário não encontrado.",
+                        "example": []
+                    }
+                ],
+                "authentication": true,
+                "notes": ""
+            }
+        ],
+        "summary": "Endpoint responsável por atualizar os tokens de acesso e refresh utilizando um refresh token válido, garantindo a continuidade da sessão do usuário."
+    }
+}

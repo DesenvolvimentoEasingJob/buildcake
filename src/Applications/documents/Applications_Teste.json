@@ -1,0 +1,144 @@
+{
+    "module": "Applications",
+    "controller": "Teste",
+    "controller_modified_time": 1769602601,
+    "generated_at": 1769602631,
+    "documentation": {
+        "module": "Applications",
+        "controller": "Teste",
+        "endpoints": [
+            {
+                "method": "GET",
+                "path": "\/api\/Applications\/Teste",
+                "description": "Recupera uma lista de testes ativos com base nos filtros fornecidos.",
+                "parameters": [
+                    {
+                        "name": "filter",
+                        "type": "string",
+                        "required": false,
+                        "description": "Filtros para a consulta dos testes ativos.",
+                        "location": "query"
+                    }
+                ],
+                "responses": [
+                    {
+                        "status": 200,
+                        "description": "Lista de testes ativos ou mensagem informando que nenhum teste foi encontrado.",
+                        "example": {
+                            "data": [
+                                {
+                                    "id": 1,
+                                    "name": "Teste 1",
+                                    "is_active": true
+                                }
+                            ],
+                            "message": "Dados processados com sucesso."
+                        }
+                    }
+                ],
+                "authentication": true,
+                "notes": ""
+            },
+            {
+                "method": "POST",
+                "path": "\/api\/Applications\/Teste",
+                "description": "Insere um novo teste com os dados fornecidos.",
+                "parameters": [
+                    {
+                        "name": "name",
+                        "type": "string",
+                        "required": true,
+                        "description": "Nome do teste a ser inserido.",
+                        "location": "form"
+                    },
+                    {
+                        "name": "is_active",
+                        "type": "boolean",
+                        "required": false,
+                        "description": "Indica se o teste está ativo.",
+                        "location": "form"
+                    }
+                ],
+                "responses": [
+                    {
+                        "status": 200,
+                        "description": "Dados do teste inserido com sucesso.",
+                        "example": {
+                            "id": 1,
+                            "name": "Teste 1",
+                            "is_active": true
+                        }
+                    }
+                ],
+                "authentication": true,
+                "notes": ""
+            },
+            {
+                "method": "PUT",
+                "path": "\/api\/Applications\/Teste",
+                "description": "Edita um teste existente com os dados fornecidos.",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "type": "integer",
+                        "required": true,
+                        "description": "ID do teste a ser editado.",
+                        "location": "form"
+                    },
+                    {
+                        "name": "name",
+                        "type": "string",
+                        "required": false,
+                        "description": "Novo nome do teste.",
+                        "location": "form"
+                    },
+                    {
+                        "name": "is_active",
+                        "type": "boolean",
+                        "required": false,
+                        "description": "Indica se o teste deve ser ativo.",
+                        "location": "form"
+                    }
+                ],
+                "responses": [
+                    {
+                        "status": 200,
+                        "description": "Dados do teste editado com sucesso.",
+                        "example": {
+                            "message": "Dados processados com sucesso."
+                        }
+                    }
+                ],
+                "authentication": true,
+                "notes": ""
+            },
+            {
+                "method": "DELETE",
+                "path": "\/api\/Applications\/Teste",
+                "description": "Remove um ou mais testes com base nos IDs fornecidos.",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "type": "string",
+                        "required": true,
+                        "description": "ID ou IDs dos testes a serem removidos, separados por vírgula.",
+                        "location": "form"
+                    }
+                ],
+                "responses": [
+                    {
+                        "status": 200,
+                        "description": "Dados do teste removido com sucesso.",
+                        "example": {
+                            "message": "Dados processados com sucesso."
+                        }
+                    }
+                ],
+                "authentication": true,
+                "notes": ""
+            }
+        ],
+        "summary": "Controller responsável pela manipulação de testes, permitindo operações de consulta, inserção, edição e remoção."
+    },
+    "documentation_hash": "7312b23b716697c76429af6a78158515"
+}

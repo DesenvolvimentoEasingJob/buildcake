@@ -1,0 +1,133 @@
+{
+    "module": "Applications",
+    "controller": "Table",
+    "controller_modified_time": 1764074620,
+    "generated_at": 1769304691,
+    "documentation": {
+        "module": "Applications",
+        "controller": "Table",
+        "endpoints": [
+            {
+                "method": "GET",
+                "path": "\/api\/Applications\/Table",
+                "description": "Lista todas as tabelas do banco de dados ou colunas de uma tabela específica.",
+                "parameters": [
+                    {
+                        "name": "table_name",
+                        "type": "string",
+                        "required": false,
+                        "description": "Nome da tabela para listar suas colunas.",
+                        "location": "query"
+                    }
+                ],
+                "responses": [
+                    {
+                        "status": 200,
+                        "description": "Dados processados com sucesso, retorna a lista de tabelas ou colunas.",
+                        "example": []
+                    }
+                ],
+                "authentication": false,
+                "notes": ""
+            },
+            {
+                "method": "POST",
+                "path": "\/api\/Applications\/Table",
+                "description": "Cria uma nova tabela baseada no template.",
+                "parameters": [
+                    {
+                        "name": "table_name",
+                        "type": "string",
+                        "required": true,
+                        "description": "Nome da tabela a ser criada.",
+                        "location": "body"
+                    },
+                    {
+                        "name": "fields",
+                        "type": "array",
+                        "required": true,
+                        "description": "Array de campos que a tabela deve conter.",
+                        "location": "body"
+                    },
+                    {
+                        "name": "foreign_keys",
+                        "type": "array",
+                        "required": false,
+                        "description": "Array de chaves estrangeiras a serem adicionadas à tabela.",
+                        "location": "body"
+                    },
+                    {
+                        "name": "additional_indexes",
+                        "type": "array",
+                        "required": false,
+                        "description": "Array de índices adicionais a serem criados na tabela.",
+                        "location": "body"
+                    }
+                ],
+                "responses": [
+                    {
+                        "status": 200,
+                        "description": "Tabela criada com sucesso.",
+                        "example": []
+                    }
+                ],
+                "authentication": false,
+                "notes": ""
+            },
+            {
+                "method": "PUT",
+                "path": "\/api\/Applications\/Table",
+                "description": "Altera uma tabela existente adicionando, removendo ou modificando colunas.",
+                "parameters": [
+                    {
+                        "name": "table_name",
+                        "type": "string",
+                        "required": true,
+                        "description": "Nome da tabela a ser alterada.",
+                        "location": "body"
+                    },
+                    {
+                        "name": "fields",
+                        "type": "array",
+                        "required": true,
+                        "description": "Array de campos com ações (add, remove, alter).",
+                        "location": "body"
+                    }
+                ],
+                "responses": [
+                    {
+                        "status": 200,
+                        "description": "Tabela atualizada com sucesso.",
+                        "example": []
+                    }
+                ],
+                "authentication": false,
+                "notes": ""
+            },
+            {
+                "method": "DELETE",
+                "path": "\/api\/Applications\/Table",
+                "description": "Deleta uma tabela existente.",
+                "parameters": [
+                    {
+                        "name": "table_name",
+                        "type": "string",
+                        "required": true,
+                        "description": "Nome da tabela a ser deletada.",
+                        "location": "body"
+                    }
+                ],
+                "responses": [
+                    {
+                        "status": 200,
+                        "description": "Tabela deletada com sucesso.",
+                        "example": []
+                    }
+                ],
+                "authentication": false,
+                "notes": ""
+            }
+        ],
+        "summary": "Controller responsável pela manipulação de tabelas no banco de dados, permitindo listar, criar, alterar e deletar tabelas."
+    }
+}

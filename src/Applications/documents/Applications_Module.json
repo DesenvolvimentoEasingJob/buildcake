@@ -1,0 +1,148 @@
+{
+    "module": "Applications",
+    "controller": "Module",
+    "controller_modified_time": 1769514344,
+    "generated_at": 1769515509,
+    "documentation": {
+        "module": "Applications",
+        "controller": "Module",
+        "endpoints": [
+            {
+                "method": "GET",
+                "path": "\/api\/Applications\/Module",
+                "description": "Retorna uma lista de módulos disponíveis, aplicando filtros se fornecidos.",
+                "parameters": [
+                    {
+                        "name": "filters",
+                        "type": "array",
+                        "required": false,
+                        "description": "Filtros para buscar módulos específicos.",
+                        "location": "query"
+                    }
+                ],
+                "responses": [
+                    {
+                        "status": 200,
+                        "description": "Lista de módulos processada com sucesso.",
+                        "example": [
+                            {
+                                "id": 1,
+                                "name": "module1",
+                                "path": "src\/module1",
+                                "controllers": [],
+                                "services": [],
+                                "other_files": [],
+                                "table_name": "module1_table"
+                            }
+                        ]
+                    }
+                ],
+                "authentication": false,
+                "notes": ""
+            },
+            {
+                "method": "POST",
+                "path": "\/api\/Applications\/Module",
+                "description": "Cria um novo módulo com base nos dados fornecidos.",
+                "parameters": [
+                    {
+                        "name": "name",
+                        "type": "string",
+                        "required": true,
+                        "description": "Nome do módulo a ser criado.",
+                        "location": "body"
+                    },
+                    {
+                        "name": "table_name",
+                        "type": "string",
+                        "required": true,
+                        "description": "Nome da tabela associada ao módulo.",
+                        "location": "body"
+                    },
+                    {
+                        "name": "module",
+                        "type": "string",
+                        "required": true,
+                        "description": "Nome do diretório do módulo.",
+                        "location": "body"
+                    },
+                    {
+                        "name": "fields",
+                        "type": "array",
+                        "required": false,
+                        "description": "Campos da tabela a serem criados junto com o módulo.",
+                        "location": "body"
+                    }
+                ],
+                "responses": [
+                    {
+                        "status": 200,
+                        "description": "Módulo criado com sucesso.",
+                        "example": {
+                            "message": "Módulo criado com sucesso.",
+                            "path": "src\/new_module",
+                            "name": "new_module"
+                        }
+                    }
+                ],
+                "authentication": false,
+                "notes": ""
+            },
+            {
+                "method": "PUT",
+                "path": "\/api\/Applications\/Module",
+                "description": "Atualiza um módulo existente com os dados fornecidos.",
+                "parameters": [
+                    {
+                        "name": "data",
+                        "type": "array",
+                        "required": true,
+                        "description": "Dados do módulo a serem atualizados.",
+                        "location": "body"
+                    }
+                ],
+                "responses": [
+                    {
+                        "status": 200,
+                        "description": "Módulo atualizado com sucesso.",
+                        "example": []
+                    }
+                ],
+                "authentication": false,
+                "notes": ""
+            },
+            {
+                "method": "DELETE",
+                "path": "\/api\/Applications\/Module",
+                "description": "Remove um módulo existente com base nos dados fornecidos.",
+                "parameters": [
+                    {
+                        "name": "name",
+                        "type": "string",
+                        "required": false,
+                        "description": "Nome do módulo a ser removido.",
+                        "location": "body"
+                    },
+                    {
+                        "name": "id",
+                        "type": "integer",
+                        "required": false,
+                        "description": "Identificador do módulo a ser removido.",
+                        "location": "body"
+                    }
+                ],
+                "responses": [
+                    {
+                        "status": 200,
+                        "description": "Módulo removido com sucesso.",
+                        "example": []
+                    }
+                ],
+                "authentication": false,
+                "notes": ""
+            }
+        ],
+        "summary": "Controller responsável pela gestão de módulos, permitindo listar, criar, atualizar e deletar módulos."
+    },
+    "documentation_hash": "8db1ace0642fb0703342dd9b52c46d1b"
+}

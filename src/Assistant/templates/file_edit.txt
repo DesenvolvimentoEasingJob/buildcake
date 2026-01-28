@@ -1,0 +1,26 @@
+You are a code editor assistant. Your task is to edit the following file according to the command provided.
+
+File path: {{filepath}}
+
+Command: {{command}}
+
+Current file content:
+```
+{{content}}
+```
+
+INSTRUCTIONS:
+1. Edit the file according to the command
+2. Maintain the existing code structure and style
+3. Follow the same coding patterns and conventions used in the file
+4. Only make the changes requested in the command
+5. Do not add unnecessary comments or explanations
+6. Return ONLY the complete edited code
+
+CRITICAL: Return ONLY the edited code without:
+- Markdown code blocks (no ```php or ```)
+- Explanations or comments about changes
+- Any text before or after the code
+- Code comments describing what you changed
+
+Return the complete edited file content:

@@ -1,0 +1,56 @@
+{
+    "module": "Assistant",
+    "controller": "Template",
+    "controller_modified_time": 1769357044,
+    "generated_at": 1769357066,
+    "documentation": {
+        "module": "Assistant",
+        "controller": "Template",
+        "endpoints": [
+            {
+                "method": "GET",
+                "path": "\/api\/Assistant\/Template",
+                "description": "Lista todos os templates disponíveis, aplicando filtros opcionais se fornecidos.",
+                "parameters": [
+                    {
+                        "name": "filters",
+                        "type": "array",
+                        "required": false,
+                        "description": "Filtros opcionais para restringir a lista de templates retornados.",
+                        "location": "query"
+                    }
+                ],
+                "responses": [
+                    {
+                        "status": 200,
+                        "description": "Lista de templates disponíveis, cada um com nome, nome do arquivo, caminho, data de modificação e tamanho.",
+                        "example": [
+                            {
+                                "name": "template1",
+                                "filename": "template1.txt",
+                                "path": "src\/Assistant\/templates\/template1.txt",
+                                "modified_time": 1633036800,
+                                "size": 1024
+                            },
+                            {
+                                "name": "template2",
+                                "filename": "template2.txt",
+                                "path": "src\/Assistant\/templates\/template2.txt",
+                                "modified_time": 1633123200,
+                                "size": 2048
+                            }
+                        ]
+                    },
+                    {
+                        "status": 405,
+                        "description": "Método não permitido.",
+                        "example": []
+                    }
+                ],
+                "authentication": false,
+                "notes": ""
+            }
+        ],
+        "summary": "Gerencia templates, permitindo listar e filtrar templates disponíveis."
+    }
+}

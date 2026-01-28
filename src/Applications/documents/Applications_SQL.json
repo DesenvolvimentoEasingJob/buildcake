@@ -1,0 +1,182 @@
+{
+    "module": "Applications",
+    "controller": "SQL",
+    "controller_modified_time": 1769306549,
+    "generated_at": 1769333312,
+    "documentation": {
+        "module": "Applications",
+        "controller": "SQL",
+        "endpoints": [
+            {
+                "method": "GET",
+                "path": "\/api\/Applications\/SQL",
+                "description": "Executa uma query SQL SELECT e retorna os resultados.",
+                "parameters": [
+                    {
+                        "name": "query",
+                        "type": "string",
+                        "required": true,
+                        "description": "Query SQL SELECT completa (com placeholders :param).",
+                        "location": "query"
+                    },
+                    {
+                        "name": "params",
+                        "type": "array|string",
+                        "required": false,
+                        "description": "Array associativo com os parâmetros para a query ou uma string JSON representando um array.",
+                        "location": "query"
+                    }
+                ],
+                "responses": [
+                    {
+                        "status": 200,
+                        "description": "Dados processados com sucesso.",
+                        "example": []
+                    },
+                    {
+                        "status": 400,
+                        "description": "Erro ao executar query: Parâmetro 'query' é obrigatório ou a query não é uma SELECT.",
+                        "example": []
+                    },
+                    {
+                        "status": 500,
+                        "description": "Erro ao executar query: Mensagem de erro detalhada.",
+                        "example": []
+                    }
+                ],
+                "authentication": false,
+                "notes": ""
+            },
+            {
+                "method": "POST",
+                "path": "\/api\/Applications\/SQL",
+                "description": "Executa uma query SQL INSERT e insere um novo registro.",
+                "parameters": [
+                    {
+                        "name": "query",
+                        "type": "string",
+                        "required": true,
+                        "description": "Query SQL INSERT completa (com placeholders :param).",
+                        "location": "form"
+                    },
+                    {
+                        "name": "params",
+                        "type": "array",
+                        "required": false,
+                        "description": "Array associativo com os parâmetros para a query.",
+                        "location": "form"
+                    }
+                ],
+                "responses": [
+                    {
+                        "status": 200,
+                        "description": "Dados processados com sucesso.",
+                        "example": {
+                            "message": "Registro inserido com sucesso.",
+                            "query": "INSERT INTO table (column) VALUES (:param)"
+                        }
+                    },
+                    {
+                        "status": 400,
+                        "description": "Erro ao executar query: Parâmetro 'query' é obrigatório ou a query não é uma INSERT.",
+                        "example": []
+                    },
+                    {
+                        "status": 500,
+                        "description": "Erro ao executar query: Mensagem de erro detalhada.",
+                        "example": []
+                    }
+                ],
+                "authentication": false,
+                "notes": ""
+            },
+            {
+                "method": "PUT",
+                "path": "\/api\/Applications\/SQL",
+                "description": "Executa uma query SQL UPDATE e atualiza registros existentes.",
+                "parameters": [
+                    {
+                        "name": "query",
+                        "type": "string",
+                        "required": true,
+                        "description": "Query SQL UPDATE completa (com placeholders :param).",
+                        "location": "form"
+                    },
+                    {
+                        "name": "params",
+                        "type": "array",
+                        "required": false,
+                        "description": "Array associativo com os parâmetros para a query.",
+                        "location": "form"
+                    }
+                ],
+                "responses": [
+                    {
+                        "status": 200,
+                        "description": "Dados processados com sucesso.",
+                        "example": {
+                            "message": "Registro(s) atualizado(s) com sucesso.",
+                            "query": "UPDATE table SET column = :param WHERE condition"
+                        }
+                    },
+                    {
+                        "status": 400,
+                        "description": "Erro ao executar query: Parâmetro 'query' é obrigatório ou a query não é uma UPDATE.",
+                        "example": []
+                    },
+                    {
+                        "status": 500,
+                        "description": "Erro ao executar query: Mensagem de erro detalhada.",
+                        "example": []
+                    }
+                ],
+                "authentication": false,
+                "notes": ""
+            },
+            {
+                "method": "DELETE",
+                "path": "\/api\/Applications\/SQL",
+                "description": "Executa uma query SQL DELETE e remove registros existentes.",
+                "parameters": [
+                    {
+                        "name": "query",
+                        "type": "string",
+                        "required": true,
+                        "description": "Query SQL DELETE completa (com placeholders :param).",
+                        "location": "form"
+                    },
+                    {
+                        "name": "params",
+                        "type": "array",
+                        "required": false,
+                        "description": "Array associativo com os parâmetros para a query.",
+                        "location": "form"
+                    }
+                ],
+                "responses": [
+                    {
+                        "status": 200,
+                        "description": "Dados processados com sucesso.",
+                        "example": {
+                            "message": "Registro(s) deletado(s) com sucesso.",
+                            "query": "DELETE FROM table WHERE condition"
+                        }
+                    },
+                    {
+                        "status": 400,
+                        "description": "Erro ao executar query: Parâmetro 'query' é obrigatório ou a query não é uma DELETE.",
+                        "example": []
+                    },
+                    {
+                        "status": 500,
+                        "description": "Erro ao executar query: Mensagem de erro detalhada.",
+                        "example": []
+                    }
+                ],
+                "authentication": false,
+                "notes": ""
+            }
+        ],
+        "summary": "Controller responsável por executar operações SQL básicas (SELECT, INSERT, UPDATE, DELETE) através de queries fornecidas pelo usuário."
+    }
+}

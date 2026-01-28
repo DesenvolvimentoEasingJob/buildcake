@@ -1,0 +1,136 @@
+{
+    "module": "Users",
+    "controller": "Status",
+    "controller_modified_time": 1764036965,
+    "generated_at": 1769304810,
+    "documentation": {
+        "module": "Users",
+        "controller": "Status",
+        "endpoints": [
+            {
+                "method": "GET",
+                "path": "\/api\/Users\/Status",
+                "description": "Retorna a lista de status ativos.",
+                "parameters": [
+                    {
+                        "name": "filter",
+                        "type": "string",
+                        "required": false,
+                        "description": "Filtro para buscar status específicos.",
+                        "location": "query"
+                    }
+                ],
+                "responses": [
+                    {
+                        "status": 200,
+                        "description": "Lista de status ativos retornada com sucesso.",
+                        "example": []
+                    }
+                ],
+                "authentication": true,
+                "notes": ""
+            },
+            {
+                "method": "POST",
+                "path": "\/api\/Users\/Status",
+                "description": "Insere um novo status.",
+                "parameters": [
+                    {
+                        "name": "name",
+                        "type": "string",
+                        "required": true,
+                        "description": "Nome do status a ser inserido.",
+                        "location": "body"
+                    },
+                    {
+                        "name": "is_active",
+                        "type": "boolean",
+                        "required": true,
+                        "description": "Indica se o status está ativo.",
+                        "location": "body"
+                    }
+                ],
+                "responses": [
+                    {
+                        "status": 200,
+                        "description": "Status inserido com sucesso.",
+                        "example": {
+                            "id": 1,
+                            "name": "Novo Status",
+                            "is_active": true
+                        }
+                    }
+                ],
+                "authentication": true,
+                "notes": ""
+            },
+            {
+                "method": "PUT",
+                "path": "\/api\/Users\/Status",
+                "description": "Edita um status existente.",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "type": "integer",
+                        "required": true,
+                        "description": "ID do status a ser editado.",
+                        "location": "body"
+                    },
+                    {
+                        "name": "name",
+                        "type": "string",
+                        "required": false,
+                        "description": "Novo nome do status.",
+                        "location": "body"
+                    },
+                    {
+                        "name": "is_active",
+                        "type": "boolean",
+                        "required": false,
+                        "description": "Indica se o status deve ser ativo.",
+                        "location": "body"
+                    }
+                ],
+                "responses": [
+                    {
+                        "status": 200,
+                        "description": "Status editado com sucesso.",
+                        "example": {
+                            "id": 1,
+                            "name": "Status Editado",
+                            "is_active": true
+                        }
+                    }
+                ],
+                "authentication": true,
+                "notes": ""
+            },
+            {
+                "method": "DELETE",
+                "path": "\/api\/Users\/Status",
+                "description": "Remove um ou mais status.",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "type": "string",
+                        "required": true,
+                        "description": "ID ou IDs dos status a serem removidos, separados por vírgula.",
+                        "location": "body"
+                    }
+                ],
+                "responses": [
+                    {
+                        "status": 200,
+                        "description": "Status removido com sucesso.",
+                        "example": {
+                            "message": "Status removido com sucesso."
+                        }
+                    }
+                ],
+                "authentication": true,
+                "notes": ""
+            }
+        ],
+        "summary": "Controlador responsável pela gestão dos status dos usuários, permitindo a consulta, inserção, edição e remoção de status."
+    }
+}

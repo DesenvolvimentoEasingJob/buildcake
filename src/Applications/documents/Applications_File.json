@@ -1,0 +1,152 @@
+{
+    "module": "Applications",
+    "controller": "File",
+    "controller_modified_time": 1764073521,
+    "generated_at": 1769304640,
+    "documentation": {
+        "module": "Applications",
+        "controller": "File",
+        "endpoints": [
+            {
+                "method": "GET",
+                "path": "\/api\/Applications\/File",
+                "description": "Lista todos os arquivos dentro do diretório src ou retorna o conteúdo de um arquivo específico se um filtro for aplicado.",
+                "parameters": [
+                    {
+                        "name": "path",
+                        "type": "string",
+                        "required": false,
+                        "description": "Caminho do arquivo para retornar seu conteúdo.",
+                        "location": "query"
+                    },
+                    {
+                        "name": "filepath",
+                        "type": "string",
+                        "required": false,
+                        "description": "Caminho do arquivo para retornar seu conteúdo.",
+                        "location": "query"
+                    }
+                ],
+                "responses": [
+                    {
+                        "status": 200,
+                        "description": "Lista de arquivos ou conteúdo do arquivo solicitado.",
+                        "example": {
+                            "files": [
+                                {
+                                    "file": "example.txt",
+                                    "path": "example.txt",
+                                    "fullPath": "src\/example.txt"
+                                }
+                            ]
+                        }
+                    }
+                ],
+                "authentication": false,
+                "notes": ""
+            },
+            {
+                "method": "POST",
+                "path": "\/api\/Applications\/File",
+                "description": "Cria um novo arquivo no diretório especificado com o conteúdo fornecido.",
+                "parameters": [
+                    {
+                        "name": "directory",
+                        "type": "string",
+                        "required": true,
+                        "description": "Diretório onde o arquivo será criado.",
+                        "location": "form"
+                    },
+                    {
+                        "name": "filename",
+                        "type": "string",
+                        "required": true,
+                        "description": "Nome do arquivo a ser criado.",
+                        "location": "form"
+                    },
+                    {
+                        "name": "content",
+                        "type": "string",
+                        "required": true,
+                        "description": "Conteúdo do arquivo a ser criado.",
+                        "location": "form"
+                    }
+                ],
+                "responses": [
+                    {
+                        "status": 200,
+                        "description": "Arquivo criado com sucesso.",
+                        "example": {
+                            "message": "Arquivo criado com sucesso.",
+                            "path": "src\/directory\/filename.txt",
+                            "directory": "directory",
+                            "filename": "filename.txt"
+                        }
+                    }
+                ],
+                "authentication": false,
+                "notes": ""
+            },
+            {
+                "method": "PUT",
+                "path": "\/api\/Applications\/File",
+                "description": "Edita um arquivo existente com o novo conteúdo fornecido.",
+                "parameters": [
+                    {
+                        "name": "filepath",
+                        "type": "string",
+                        "required": true,
+                        "description": "Caminho do arquivo a ser editado.",
+                        "location": "form"
+                    },
+                    {
+                        "name": "content",
+                        "type": "string",
+                        "required": true,
+                        "description": "Novo conteúdo para o arquivo.",
+                        "location": "form"
+                    }
+                ],
+                "responses": [
+                    {
+                        "status": 200,
+                        "description": "Arquivo editado com sucesso.",
+                        "example": {
+                            "message": "Arquivo editado com sucesso.",
+                            "path": "src\/directory\/filename.txt"
+                        }
+                    }
+                ],
+                "authentication": false,
+                "notes": ""
+            },
+            {
+                "method": "DELETE",
+                "path": "\/api\/Applications\/File",
+                "description": "Deleta um arquivo existente especificado pelo caminho fornecido.",
+                "parameters": [
+                    {
+                        "name": "filepath",
+                        "type": "string",
+                        "required": true,
+                        "description": "Caminho do arquivo a ser deletado.",
+                        "location": "form"
+                    }
+                ],
+                "responses": [
+                    {
+                        "status": 200,
+                        "description": "Arquivo deletado com sucesso.",
+                        "example": {
+                            "message": "Arquivo deletado com sucesso.",
+                            "path": "src\/directory\/filename.txt"
+                        }
+                    }
+                ],
+                "authentication": false,
+                "notes": ""
+            }
+        ],
+        "summary": "A controller File gerencia operações de arquivos, permitindo listar, criar, editar e deletar arquivos dentro do diretório src."
+    }
+}

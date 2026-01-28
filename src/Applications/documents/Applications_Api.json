@@ -1,0 +1,151 @@
+{
+    "module": "Applications",
+    "controller": "Api",
+    "controller_modified_time": 1769364169,
+    "generated_at": 1769364527,
+    "documentation": {
+        "module": "Applications",
+        "controller": "Api",
+        "endpoints": [
+            {
+                "method": "GET",
+                "path": "\/api\/Applications\/Api",
+                "description": "Lista todos os arquivos dentro das pastas controllers de todos os módulos, podendo filtrar os resultados com parâmetros.",
+                "parameters": [
+                    {
+                        "name": "filters",
+                        "type": "array",
+                        "required": false,
+                        "description": "Filtros para buscar controllers específicos.",
+                        "location": "query"
+                    }
+                ],
+                "responses": [
+                    {
+                        "status": 200,
+                        "description": "Lista de controllers encontrados.",
+                        "example": [
+                            {
+                                "module": "ModuleName",
+                                "file": "ControllerName.php",
+                                "path": "ModuleName\/controllers\/ControllerName.php"
+                            }
+                        ]
+                    }
+                ],
+                "authentication": false,
+                "notes": ""
+            },
+            {
+                "method": "POST",
+                "path": "\/api\/Applications\/Api",
+                "description": "Cria um novo controller baseado no template fornecido, requerendo o nome e o módulo.",
+                "parameters": [
+                    {
+                        "name": "name",
+                        "type": "string",
+                        "required": true,
+                        "description": "Nome do controller a ser criado.",
+                        "location": "body"
+                    },
+                    {
+                        "name": "module",
+                        "type": "string",
+                        "required": true,
+                        "description": "Nome do módulo onde o controller será criado.",
+                        "location": "body"
+                    },
+                    {
+                        "name": "filename",
+                        "type": "string",
+                        "required": false,
+                        "description": "Nome do arquivo do controller, se diferente do nome.",
+                        "location": "body"
+                    }
+                ],
+                "responses": [
+                    {
+                        "status": 200,
+                        "description": "Controller criado com sucesso.",
+                        "example": {
+                            "message": "Controller criado com sucesso.",
+                            "path": "src\/ModuleName\/controllers\/ControllerNameController.php",
+                            "module": "ModuleName"
+                        }
+                    }
+                ],
+                "authentication": false,
+                "notes": ""
+            },
+            {
+                "method": "PUT",
+                "path": "\/api\/Applications\/Api",
+                "description": "Atualiza um controller existente, requerendo o nome e o módulo.",
+                "parameters": [
+                    {
+                        "name": "name",
+                        "type": "string",
+                        "required": true,
+                        "description": "Nome do controller a ser atualizado.",
+                        "location": "body"
+                    },
+                    {
+                        "name": "module",
+                        "type": "string",
+                        "required": true,
+                        "description": "Nome do módulo onde o controller está localizado.",
+                        "location": "body"
+                    }
+                ],
+                "responses": [
+                    {
+                        "status": 200,
+                        "description": "Controller atualizado com sucesso.",
+                        "example": {
+                            "message": "Controller atualizado com sucesso.",
+                            "path": "src\/ModuleName\/controllers\/ControllerNameController.php",
+                            "module": "ModuleName"
+                        }
+                    }
+                ],
+                "authentication": false,
+                "notes": ""
+            },
+            {
+                "method": "DELETE",
+                "path": "\/api\/Applications\/Api",
+                "description": "Deleta um controller existente, requerendo o nome e o módulo.",
+                "parameters": [
+                    {
+                        "name": "name",
+                        "type": "string",
+                        "required": true,
+                        "description": "Nome do controller a ser deletado.",
+                        "location": "body"
+                    },
+                    {
+                        "name": "module",
+                        "type": "string",
+                        "required": true,
+                        "description": "Nome do módulo onde o controller está localizado.",
+                        "location": "body"
+                    }
+                ],
+                "responses": [
+                    {
+                        "status": 200,
+                        "description": "Controller deletado com sucesso.",
+                        "example": {
+                            "message": "Controller deletado com sucesso.",
+                            "path": "src\/ModuleName\/controllers\/ControllerNameController.php",
+                            "module": "ModuleName"
+                        }
+                    }
+                ],
+                "authentication": false,
+                "notes": ""
+            }
+        ],
+        "summary": "Controller que gerencia a criação, atualização, listagem e deleção de controllers dentro dos módulos da aplicação."
+    }
+}

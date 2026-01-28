@@ -1,0 +1,56 @@
+{
+    "module": "Applications",
+    "controller": "Document",
+    "controller_modified_time": 1769365234,
+    "generated_at": 1769365242,
+    "documentation": {
+        "module": "Applications",
+        "controller": "Document",
+        "endpoints": [
+            {
+                "method": "GET",
+                "path": "\/api\/Applications\/Document",
+                "description": "Retorna a documentação das APIs, podendo filtrar por módulo ou controller, e atualiza a versão se houver mudanças.",
+                "parameters": [
+                    {
+                        "name": "module",
+                        "type": "string",
+                        "required": false,
+                        "description": "Filtro para especificar o módulo da documentação a ser retornada.",
+                        "location": "query"
+                    },
+                    {
+                        "name": "controller",
+                        "type": "string",
+                        "required": false,
+                        "description": "Filtro para especificar a controller da documentação a ser retornada.",
+                        "location": "query"
+                    },
+                    {
+                        "name": "force_refresh",
+                        "type": "boolean",
+                        "required": false,
+                        "description": "Indica se a documentação deve ser forçada a ser atualizada, ignorando o cache existente.",
+                        "location": "query"
+                    }
+                ],
+                "responses": [
+                    {
+                        "status": 200,
+                        "description": "Retorna a documentação das APIs com a versão atual e informações adicionais.",
+                        "example": {
+                            "data": [],
+                            "version": "1.0.0",
+                            "title": "BuildCake API",
+                            "description": "Documentação completa das APIs do sistema"
+                        }
+                    }
+                ],
+                "authentication": false,
+                "notes": ""
+            }
+        ],
+        "summary": "Controller responsável por gerenciar e retornar a documentação das APIs do sistema, permitindo filtros e atualizações."
+    },
+    "documentation_hash": "0aae5d7394681a1b772f840d7595b882"
+}

@@ -1,0 +1,75 @@
+{
+    "module": "Assistant",
+    "controller": "ModuleCreation",
+    "controller_modified_time": 1769515104,
+    "generated_at": 1769515522,
+    "documentation": {
+        "module": "Assistant",
+        "controller": "ModuleCreation",
+        "endpoints": [
+            {
+                "method": "POST",
+                "path": "\/api\/Assistant\/ModuleCreation",
+                "description": "Recebe uma ação e dados para analisar ou criar um módulo.",
+                "parameters": [
+                    {
+                        "name": "action",
+                        "type": "string",
+                        "required": true,
+                        "description": "Ação a ser executada: 'analyze' ou 'create_module'.",
+                        "location": "body"
+                    },
+                    {
+                        "name": "content",
+                        "type": "string",
+                        "required": false,
+                        "description": "Conteúdo a ser analisado, usado quando a ação é 'analyze'.",
+                        "location": "body"
+                    },
+                    {
+                        "name": "conversation",
+                        "type": "string",
+                        "required": false,
+                        "description": "Conteúdo alternativo a ser analisado, usado quando a ação é 'analyze'.",
+                        "location": "body"
+                    },
+                    {
+                        "name": "task",
+                        "type": "string",
+                        "required": false,
+                        "description": "Descrição da tarefa a ser criada, usada quando a ação é 'create_module'.",
+                        "location": "body"
+                    }
+                ],
+                "responses": [
+                    {
+                        "status": 200,
+                        "description": "Ação executada com sucesso, retornando os dados apropriados.",
+                        "example": {
+                            "steps": []
+                        }
+                    },
+                    {
+                        "status": 400,
+                        "description": "Erro de requisição, parâmetros obrigatórios não fornecidos ou ação não reconhecida.",
+                        "example": []
+                    },
+                    {
+                        "status": 404,
+                        "description": "Template não encontrado.",
+                        "example": []
+                    },
+                    {
+                        "status": 500,
+                        "description": "Erro interno do servidor, como falta de configuração de API.",
+                        "example": []
+                    }
+                ],
+                "authentication": false,
+                "notes": ""
+            }
+        ],
+        "summary": "Controlador responsável pela criação e análise de módulos, interagindo com o serviço de criação de módulos."
+    },
+    "documentation_hash": "f803083f8b38f00426c2b8823278fe70"
+}

@@ -1,0 +1,110 @@
+{
+    "module": "Users",
+    "controller": "Sessions",
+    "controller_modified_time": 1764037102,
+    "generated_at": 1769304796,
+    "documentation": {
+        "module": "Users",
+        "controller": "Sessions",
+        "endpoints": [
+            {
+                "method": "GET",
+                "path": "\/api\/Users\/Sessions",
+                "description": "Recupera todas as sessões ativas com base nos filtros fornecidos.",
+                "parameters": [
+                    {
+                        "name": "filter",
+                        "type": "string",
+                        "required": false,
+                        "description": "Filtros para a busca de sessões ativas.",
+                        "location": "query"
+                    }
+                ],
+                "responses": [
+                    {
+                        "status": 200,
+                        "description": "Retorna uma lista de sessões ativas ou uma mensagem informando que nenhuma sessão foi encontrada.",
+                        "example": {
+                            "sessions": []
+                        }
+                    }
+                ],
+                "authentication": true,
+                "notes": ""
+            },
+            {
+                "method": "POST",
+                "path": "\/api\/Users\/Sessions",
+                "description": "Insere uma nova sessão com os dados fornecidos.",
+                "parameters": [
+                    {
+                        "name": "data",
+                        "type": "object",
+                        "required": true,
+                        "description": "Dados da nova sessão a ser inserida.",
+                        "location": "body"
+                    }
+                ],
+                "responses": [
+                    {
+                        "status": 200,
+                        "description": "Retorna os dados da sessão inserida, incluindo o ID gerado.",
+                        "example": {
+                            "id": 1,
+                            "data": []
+                        }
+                    }
+                ],
+                "authentication": true,
+                "notes": ""
+            },
+            {
+                "method": "PUT",
+                "path": "\/api\/Users\/Sessions",
+                "description": "Atualiza uma sessão existente com os dados fornecidos.",
+                "parameters": [
+                    {
+                        "name": "data",
+                        "type": "object",
+                        "required": true,
+                        "description": "Dados da sessão a ser atualizada, incluindo o ID da sessão.",
+                        "location": "body"
+                    }
+                ],
+                "responses": [
+                    {
+                        "status": 200,
+                        "description": "Retorna os dados da sessão atualizada.",
+                        "example": []
+                    }
+                ],
+                "authentication": true,
+                "notes": ""
+            },
+            {
+                "method": "DELETE",
+                "path": "\/api\/Users\/Sessions",
+                "description": "Remove uma ou mais sessões com base nos IDs fornecidos.",
+                "parameters": [
+                    {
+                        "name": "ids",
+                        "type": "string",
+                        "required": true,
+                        "description": "IDs das sessões a serem removidas, separados por vírgula.",
+                        "location": "body"
+                    }
+                ],
+                "responses": [
+                    {
+                        "status": 200,
+                        "description": "Retorna uma confirmação da remoção das sessões.",
+                        "example": []
+                    }
+                ],
+                "authentication": true,
+                "notes": ""
+            }
+        ],
+        "summary": "Gerencia as sessões de usuários, permitindo a recuperação, inserção, atualização e remoção de sessões."
+    }
+}
