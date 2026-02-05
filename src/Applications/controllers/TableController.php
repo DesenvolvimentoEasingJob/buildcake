@@ -15,7 +15,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $response = $Table->postTable($_POST);
+    $data = $_POST ?: (json_decode(file_get_contents('php://input'), true) ?: []);
+    $response = $Table->postTable($data);
     Utils::sendResponse(
         200, 
         $response,

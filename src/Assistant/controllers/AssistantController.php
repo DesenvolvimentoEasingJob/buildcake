@@ -17,3 +17,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 
 Utils::sendResponse(405, [], 'Método não permitido.');
+
+// william o comentario

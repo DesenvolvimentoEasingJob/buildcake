@@ -1,8 +1,8 @@
 {
     "module": "Assistant",
     "controller": "Assistant",
-    "controller_modified_time": 1769481404,
-    "generated_at": 1769513884,
+    "controller_modified_time": 1770144358,
+    "generated_at": 1770144468,
     "documentation": {
         "module": "Assistant",
         "controller": "Assistant",
@@ -16,14 +16,14 @@
                         "name": "question",
                         "type": "string",
                         "required": true,
-                        "description": "A pergunta que será enviada para a IA.",
+                        "description": "A pergunta a ser processada pela IA.",
                         "location": "body"
                     },
                     {
                         "name": "template",
                         "type": "string",
                         "required": false,
-                        "description": "Nome do template a ser utilizado na construção do prompt.",
+                        "description": "Nome do template a ser utilizado na construção da resposta.",
                         "location": "body"
                     },
                     {
@@ -44,7 +44,7 @@
                 "responses": [
                     {
                         "status": 200,
-                        "description": "Dados processados com sucesso, resposta da IA retornada.",
+                        "description": "Dados processados com sucesso e resposta da IA retornada.",
                         "example": {
                             "response": "Resposta gerada pela IA.",
                             "template_used": "nome_do_template",
@@ -60,17 +60,17 @@
                     },
                     {
                         "status": 500,
-                        "description": "Erro interno, API key não configurada ou erro na chamada da API.",
+                        "description": "Erro interno ao processar a solicitação.",
                         "example": {
                             "error": "OPENAI_API_KEY não configurada no .env"
                         }
                     }
                 ],
-                "authentication": true,
-                "notes": "A API key deve estar configurada no ambiente para que a chamada à OpenAI funcione corretamente."
+                "authentication": false,
+                "notes": ""
             }
         ],
-        "summary": "Controller responsável por interagir com a API do OpenAI para processar perguntas e retornar respostas geradas pela IA."
+        "summary": "Controller para interação com a IA utilizando a API do OpenAI, permitindo o envio de perguntas e recebimento de respostas."
     },
-    "documentation_hash": "671c4997331f29d9ae41e3f3e8e729db"
+    "documentation_hash": "7c4dbebeeb72d8fa08db18fa3a7c1635"
 }

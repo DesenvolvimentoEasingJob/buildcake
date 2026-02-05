@@ -1,0 +1,111 @@
+{
+    "module": "DataApi",
+    "controller": "DataApi",
+    "controller_modified_time": 1769692271,
+    "generated_at": 1769707933,
+    "documentation": {
+        "module": "DataApi",
+        "controller": "DataApi",
+        "endpoints": [
+            {
+                "method": "GET",
+                "path": "\/api\/DataApi\/DataApi",
+                "description": "Retorna dados da tabela especificada através do parâmetro 'table'.",
+                "parameters": [
+                    {
+                        "name": "table",
+                        "type": "string",
+                        "required": true,
+                        "description": "Nome da tabela da qual os dados devem ser retornados.",
+                        "location": "query"
+                    }
+                ],
+                "responses": [
+                    {
+                        "status": 200,
+                        "description": "Dados processados com sucesso.",
+                        "example": []
+                    },
+                    {
+                        "status": 404,
+                        "description": "Nenhum(a) registro encontrado na tabela especificada.",
+                        "example": []
+                    }
+                ],
+                "authentication": false,
+                "notes": ""
+            },
+            {
+                "method": "POST",
+                "path": "\/api\/DataApi\/DataApi",
+                "description": "Insere novos dados na tabela especificada.",
+                "parameters": [
+                    {
+                        "name": "data",
+                        "type": "object",
+                        "required": true,
+                        "description": "Dados a serem inseridos na tabela.",
+                        "location": "body"
+                    }
+                ],
+                "responses": [
+                    {
+                        "status": 200,
+                        "description": "Dados inseridos com sucesso.",
+                        "example": []
+                    }
+                ],
+                "authentication": false,
+                "notes": ""
+            },
+            {
+                "method": "PUT",
+                "path": "\/api\/DataApi\/DataApi",
+                "description": "Edita dados existentes na tabela especificada.",
+                "parameters": [
+                    {
+                        "name": "data",
+                        "type": "object",
+                        "required": true,
+                        "description": "Dados a serem editados, incluindo o ID do registro.",
+                        "location": "body"
+                    }
+                ],
+                "responses": [
+                    {
+                        "status": 200,
+                        "description": "Dados processados com sucesso.",
+                        "example": []
+                    }
+                ],
+                "authentication": false,
+                "notes": ""
+            },
+            {
+                "method": "DELETE",
+                "path": "\/api\/DataApi\/DataApi",
+                "description": "Remove dados da tabela especificada.",
+                "parameters": [
+                    {
+                        "name": "data",
+                        "type": "object",
+                        "required": true,
+                        "description": "ID ou conjunto de IDs dos registros a serem removidos.",
+                        "location": "body"
+                    }
+                ],
+                "responses": [
+                    {
+                        "status": 200,
+                        "description": "Dados removidos com sucesso.",
+                        "example": []
+                    }
+                ],
+                "authentication": false,
+                "notes": ""
+            }
+        ],
+        "summary": "Controller responsável por gerenciar operações CRUD na tabela especificada, permitindo a recuperação, inserção, edição e remoção de dados."
+    },
+    "documentation_hash": "86f6d30bf98f0c53f52944c99210e688"
+}
