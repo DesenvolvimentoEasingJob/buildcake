@@ -16,8 +16,9 @@ class ModuleCreationService {
     }
 
     /**
-     * Analisa o comando/conteúdo usando o template schema_steps.txt e retorna JSON com steps (atividades).
-     * Front usa esse JSON para dividir em atividades.
+     * Analisa o comando/conteúdo e retorna JSON com steps (atividades).
+     * Se command_type === 'controller_service', usa template para apenas Controller e Service.
+     * Caso contrário, usa schema_steps (módulos e/ou tabelas).
      */
     public function getSteps($data) {
         if (!$this->apiKey) {
@@ -27,11 +28,21 @@ class ModuleCreationService {
         if ($content === '') {
             throw new Exception("Parâmetro 'content' ou 'conversation' é obrigatório.", 400);
         }
-        $path = $this->templatesPath . 'schema_steps.txt';
+        $commandType = $data['command_type'] ?? 'module';
+
+        if ($commandType === 'controller_service') {
+            $path = $this->templatesPath . 'schema_controller_service_steps.txt';
+        } else {
+            $path = $this->templatesPath . 'schema_steps.txt';
+        }
+
         if (!file_exists($path)) {
-            throw new Exception("Template schema_steps não encontrado.", 404);
+            throw new Exception("Template não encontrado: " . basename($path), 404);
         }
         $prompt = str_replace('{{userRequest}}', $content, file_get_contents($path));
+        if ($commandType === 'table') {
+            $prompt .= "\n\nIMPORTANT: The user wants ONLY database tables (no full modules). Return steps with only the 'tables' array filled; set 'modules' to empty array [] in every step.";
+        }
         $response = $this->callOpenAI($prompt);
         $json = $this->extractJsonFromResponse($response);
         if (!isset($json['steps']) || !is_array($json['steps'])) {

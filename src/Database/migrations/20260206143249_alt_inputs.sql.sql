@@ -1,0 +1,1 @@
+ALTER TABLE `inputs` ADD COLUMN `movement_type` ENUM('ENTRADA','SAIDA') NULL DEFAULT 'entrada'

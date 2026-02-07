@@ -24,7 +24,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'PUT') {
-    $response = $Table->putTable($_POST);
+    $data = $_POST ?: (json_decode(file_get_contents('php://input'), true) ?: []);
+    $response = $Table->putTable($data);
     Utils::sendResponse(
         200, 
         $response,

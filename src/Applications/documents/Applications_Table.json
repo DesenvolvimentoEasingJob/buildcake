@@ -1,8 +1,8 @@
 {
     "module": "Applications",
     "controller": "Table",
-    "controller_modified_time": 1764074620,
-    "generated_at": 1769304691,
+    "controller_modified_time": 1770388252,
+    "generated_at": 1770404955,
     "documentation": {
         "module": "Applications",
         "controller": "Table",
@@ -23,7 +23,7 @@
                 "responses": [
                     {
                         "status": 200,
-                        "description": "Dados processados com sucesso, retorna a lista de tabelas ou colunas.",
+                        "description": "Dados processados com sucesso.",
                         "example": []
                     }
                 ],
@@ -53,21 +53,21 @@
                         "name": "foreign_keys",
                         "type": "array",
                         "required": false,
-                        "description": "Array de chaves estrangeiras a serem adicionadas à tabela.",
+                        "description": "Array de chaves estrangeiras a serem adicionadas.",
                         "location": "body"
                     },
                     {
                         "name": "additional_indexes",
                         "type": "array",
                         "required": false,
-                        "description": "Array de índices adicionais a serem criados na tabela.",
+                        "description": "Array de índices adicionais a serem criados.",
                         "location": "body"
                     }
                 ],
                 "responses": [
                     {
                         "status": 200,
-                        "description": "Tabela criada com sucesso.",
+                        "description": "Dados processados com sucesso.",
                         "example": []
                     }
                 ],
@@ -97,7 +97,7 @@
                 "responses": [
                     {
                         "status": 200,
-                        "description": "Tabela atualizada com sucesso.",
+                        "description": "Dados processados com sucesso.",
                         "example": []
                     }
                 ],
@@ -120,7 +120,7 @@
                 "responses": [
                     {
                         "status": 200,
-                        "description": "Tabela deletada com sucesso.",
+                        "description": "Dados processados com sucesso.",
                         "example": []
                     }
                 ],
@@ -128,6 +128,7 @@
                 "notes": ""
             }
         ],
-        "summary": "Controller responsável pela manipulação de tabelas no banco de dados, permitindo listar, criar, alterar e deletar tabelas."
-    }
+        "summary": "Controlador responsável pela manipulação de tabelas no banco de dados, permitindo listar, criar, alterar e deletar tabelas."
+    },
+    "documentation_hash": "97f890af7b76d2447671752ae61fb9b0"
 }

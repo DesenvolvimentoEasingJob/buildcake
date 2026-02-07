@@ -39,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'PUT') {
     $response = $DataApi->editDataApi($_POST);
     Utils::sendResponse(
         200, 
-        $response, 
+        $_POST, 
         "Dados processados com sucesso.");
 }
 
