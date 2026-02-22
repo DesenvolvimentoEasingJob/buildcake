@@ -1,1 +1,0 @@
-ALTER TABLE `stock_balance` MODIFY COLUMN `cost_per_unit` DECIMAL(10,4) NULL

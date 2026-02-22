@@ -1,7 +1,10 @@
 <?php
 use BuildCake\Utils\Utils;
 
+Utils::IncludeService('Jwt','Authentication');
 Utils::IncludeService('Api', 'Applications');
+
+$userData = JWTService::validateAuth(); 
 
 $api = new ApiService();
 

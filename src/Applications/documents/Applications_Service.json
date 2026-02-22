@@ -1,8 +1,8 @@
 {
     "module": "Applications",
     "controller": "Service",
-    "controller_modified_time": 1763990888,
-    "generated_at": 1769304672,
+    "controller_modified_time": 1770494775,
+    "generated_at": 1770583891,
     "documentation": {
         "module": "Applications",
         "controller": "Service",
@@ -10,20 +10,20 @@
             {
                 "method": "GET",
                 "path": "\/api\/Applications\/Service",
-                "description": "Lista todos os arquivos dentro das pastas services de todos os módulos, podendo filtrar os resultados com parâmetros.",
+                "description": "Lista todos os arquivos de serviços disponíveis nos módulos.",
                 "parameters": [
                     {
                         "name": "filters",
                         "type": "array",
                         "required": false,
-                        "description": "Parâmetros para filtrar os serviços retornados.",
+                        "description": "Filtros para aplicar na busca dos serviços.",
                         "location": "query"
                     }
                 ],
                 "responses": [
                     {
                         "status": 200,
-                        "description": "Lista de serviços encontrados com sucesso.",
+                        "description": "Lista de serviços encontrados.",
                         "example": [
                             {
                                 "module": "ModuleName",
@@ -33,126 +33,127 @@
                         ]
                     }
                 ],
-                "authentication": false,
+                "authentication": true,
                 "notes": ""
             },
             {
                 "method": "POST",
                 "path": "\/api\/Applications\/Service",
-                "description": "Cria um novo Service baseado no template fornecido, requerendo parâmetros específicos.",
+                "description": "Cria um novo serviço baseado nos dados fornecidos.",
                 "parameters": [
                     {
                         "name": "name",
                         "type": "string",
                         "required": true,
-                        "description": "Nome do novo Service a ser criado.",
+                        "description": "Nome do serviço a ser criado.",
+                        "location": "body"
+                    },
+                    {
+                        "name": "module",
+                        "type": "string",
+                        "required": true,
+                        "description": "Nome do módulo onde o serviço será criado.",
                         "location": "body"
                     },
                     {
                         "name": "table_name",
                         "type": "string",
                         "required": true,
-                        "description": "Nome da tabela associada ao Service.",
-                        "location": "body"
-                    },
-                    {
-                        "name": "module",
-                        "type": "string",
-                        "required": false,
-                        "description": "Nome do módulo onde o Service será criado.",
+                        "description": "Nome da tabela associada ao serviço.",
                         "location": "body"
                     },
                     {
                         "name": "filename",
                         "type": "string",
                         "required": false,
-                        "description": "Nome do arquivo do Service, se diferente do nome.",
+                        "description": "Nome do arquivo do serviço (opcional).",
                         "location": "body"
                     }
                 ],
                 "responses": [
                     {
                         "status": 200,
-                        "description": "Service criado com sucesso.",
+                        "description": "Serviço criado com sucesso.",
                         "example": {
                             "message": "Service criado com sucesso.",
-                            "path": "src\/ModuleName\/services\/NewServiceService.php",
+                            "path": "src\/ModuleName\/services\/ServiceFile.php",
                             "module": "ModuleName"
                         }
                     }
                 ],
-                "authentication": false,
+                "authentication": true,
                 "notes": ""
             },
             {
                 "method": "PUT",
                 "path": "\/api\/Applications\/Service",
-                "description": "Atualiza um Service existente com os novos dados fornecidos.",
+                "description": "Atualiza um serviço existente com os dados fornecidos.",
                 "parameters": [
-                    {
-                        "name": "module",
-                        "type": "string",
-                        "required": true,
-                        "description": "Nome do módulo do Service a ser atualizado.",
-                        "location": "body"
-                    },
                     {
                         "name": "name",
                         "type": "string",
                         "required": true,
-                        "description": "Nome do Service a ser atualizado.",
+                        "description": "Nome do serviço a ser atualizado.",
+                        "location": "body"
+                    },
+                    {
+                        "name": "module",
+                        "type": "string",
+                        "required": true,
+                        "description": "Nome do módulo onde o serviço está localizado.",
                         "location": "body"
                     }
                 ],
                 "responses": [
                     {
                         "status": 200,
-                        "description": "Service atualizado com sucesso.",
+                        "description": "Serviço atualizado com sucesso.",
                         "example": {
                             "message": "Service atualizado com sucesso.",
-                            "path": "src\/ModuleName\/services\/UpdatedServiceService.php",
+                            "path": "src\/ModuleName\/services\/ServiceFile.php",
                             "module": "ModuleName"
                         }
                     }
                 ],
-                "authentication": false,
+                "authentication": true,
                 "notes": ""
             },
             {
                 "method": "DELETE",
                 "path": "\/api\/Applications\/Service",
-                "description": "Deleta um Service existente baseado nos parâmetros fornecidos.",
+                "description": "Deleta um serviço existente com base nos dados fornecidos.",
                 "parameters": [
-                    {
-                        "name": "module",
-                        "type": "string",
-                        "required": true,
-                        "description": "Nome do módulo do Service a ser deletado.",
-                        "location": "body"
-                    },
                     {
                         "name": "name",
                         "type": "string",
                         "required": true,
-                        "description": "Nome do Service a ser deletado.",
+                        "description": "Nome do serviço a ser deletado.",
+                        "location": "body"
+                    },
+                    {
+                        "name": "module",
+                        "type": "string",
+                        "required": true,
+                        "description": "Nome do módulo onde o serviço está localizado.",
                         "location": "body"
                     }
                 ],
                 "responses": [
                     {
                         "status": 200,
-                        "description": "Service deletado com sucesso.",
+                        "description": "Serviço deletado com sucesso.",
                         "example": {
                             "message": "Service deletado com sucesso.",
-                            "path": "src\/ModuleName\/services\/DeletedServiceService.php",
+                            "path": "src\/ModuleName\/services\/ServiceFile.php",
                             "module": "ModuleName"
                         }
                     }
                 ],
-                "authentication": false,
+                "authentication": true,
                 "notes": ""
             }
         ],
-        "summary": "Esta controller gerencia a criação, leitura, atualização e deleção de Services dentro dos módulos da aplicação."
-    }
+        "summary": "Controller responsável pela manipulação de serviços dentro dos módulos da aplicação."
+    },
+    "documentation_hash": "8027c1b18fa8ca748401fbb99306cf3e"
 }

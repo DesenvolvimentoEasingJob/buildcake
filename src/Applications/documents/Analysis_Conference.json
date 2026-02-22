@@ -1,0 +1,34 @@
+{
+  "module": "Analysis",
+  "controller": "Conference",
+  "documentation": {
+    "module": "Analysis",
+    "controller": "Conference",
+    "endpoints": [
+      {
+        "method": "POST",
+        "path": "/api/Analysis/Conference",
+        "description": "Sugestões de conferência: recebe itens da nota e supplier_id opcional; retorna por item sugestões de insumo (match EAN/código/nome), unidade e quantidade sugeridas (templates + regras aprendidas), custo unitário.",
+        "parameters": [
+          {"name": "items", "type": "array", "required": true, "description": "Itens da NF (nItem, cProd, cEAN, cEANTrib, xProd, uCom, uTrib, qCom, qTrib, vProd, vDesc).", "location": "body"},
+          {"name": "supplier_id", "type": "number", "required": false, "description": "ID do fornecedor da nota.", "location": "body"}
+        ],
+        "responses": [{"status": 200, "description": "suggestionsPerItem: array de { nItem, suggestions, suggestedUnit, suggestedQuantity, costPerUnit, totalValue, originalQty, originalUnit }."}],
+        "authentication": true,
+        "notes": ""
+      },
+      {
+        "method": "POST",
+        "path": "/api/Analysis/Conference",
+        "description": "Learn: persiste conversões de unidade confirmadas (input_id, source_unit, target_unit, quantity, original_qty, supplier_id?).",
+        "parameters": [
+          {"name": "conversions", "type": "array", "required": true, "description": "Lista de { input_id, source_unit, target_unit, quantity, original_qty, supplier_id? }.", "location": "body"}
+        ],
+        "responses": [{"status": 200, "description": "learned: número de regras registradas."}],
+        "authentication": true,
+        "notes": "Dispatched by body: use 'items' for suggestions, 'conversions' for learn."
+      }
+    ],
+    "summary": "Conferência de NFe: sugestões de matching e unidades, e aprendizado de conversões."
+  }
+}

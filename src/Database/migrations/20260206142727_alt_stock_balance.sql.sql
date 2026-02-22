@@ -1,1 +1,0 @@
-ALTER TABLE `stock_balance` MODIFY COLUMN `input_id` INT(11) NULL

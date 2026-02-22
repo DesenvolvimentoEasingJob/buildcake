@@ -1,8 +1,8 @@
 {
     "module": "Assistant",
     "controller": "FileEdit",
-    "controller_modified_time": 1769381849,
-    "generated_at": 1769383620,
+    "controller_modified_time": 1770494792,
+    "generated_at": 1770583907,
     "documentation": {
         "module": "Assistant",
         "controller": "FileEdit",
@@ -16,7 +16,7 @@
                         "name": "data",
                         "type": "object",
                         "required": true,
-                        "description": "Dados necessários para a edição do arquivo, incluindo 'filepath', 'content' e 'command'.",
+                        "description": "Objeto contendo os parâmetros 'filepath', 'content' e 'command'.",
                         "location": "body"
                     },
                     {
@@ -37,7 +37,7 @@
                         "name": "command",
                         "type": "string",
                         "required": true,
-                        "description": "Comando que especifica como o arquivo deve ser editado.",
+                        "description": "Comando de edição a ser aplicado ao arquivo.",
                         "location": "body"
                     }
                 ],
@@ -55,24 +55,24 @@
                     },
                     {
                         "status": 400,
-                        "description": "Erro na validação dos parâmetros fornecidos.",
+                        "description": "Erro de validação dos parâmetros.",
                         "example": {
                             "error": "Parâmetro 'filepath' é obrigatório."
                         }
                     },
                     {
                         "status": 500,
-                        "description": "Erro interno ao processar a edição do arquivo.",
+                        "description": "Erro interno ao processar a edição.",
                         "example": {
                             "error": "OPENAI_API_KEY não configurada no .env"
                         }
                     }
                 ],
-                "authentication": false,
-                "notes": "O endpoint não requer autenticação."
+                "authentication": true,
+                "notes": "Certifique-se de que a chave API do OpenAI esteja configurada corretamente."
             }
         ],
-        "summary": "Permite a edição de arquivos utilizando inteligência artificial para modificar o conteúdo com base em comandos específicos."
+        "summary": "Esta controller permite a edição de arquivos utilizando um assistente de IA que processa comandos de edição e retorna o conteúdo editado."
     },
-    "documentation_hash": "adbaf5d2d19714c94adf02bd17873fd6"
+    "documentation_hash": "7fa5e35ff4b59c2ce22ea8fea4b681e3"
 }

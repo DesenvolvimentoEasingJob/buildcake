@@ -1,1 +1,0 @@
-ALTER TABLE `stock_balance` ADD COLUMN `movement_type` ENUM('ENTRADA','SAIDA') NULL DEFAULT 'entrada'

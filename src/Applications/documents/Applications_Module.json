@@ -1,8 +1,8 @@
 {
     "module": "Applications",
     "controller": "Module",
-    "controller_modified_time": 1769514344,
-    "generated_at": 1769515509,
+    "controller_modified_time": 1770494773,
+    "generated_at": 1770583871,
     "documentation": {
         "module": "Applications",
         "controller": "Module",
@@ -10,13 +10,13 @@
             {
                 "method": "GET",
                 "path": "\/api\/Applications\/Module",
-                "description": "Retorna uma lista de módulos disponíveis, aplicando filtros se fornecidos.",
+                "description": "Recupera uma lista de módulos disponíveis, aplicando filtros se fornecidos.",
                 "parameters": [
                     {
                         "name": "filters",
                         "type": "array",
                         "required": false,
-                        "description": "Filtros para buscar módulos específicos.",
+                        "description": "Filtros para restringir a lista de módulos retornados.",
                         "location": "query"
                     }
                 ],
@@ -27,17 +27,17 @@
                         "example": [
                             {
                                 "id": 1,
-                                "name": "module1",
-                                "path": "src\/module1",
+                                "name": "module_name",
+                                "path": "src\/module_name",
                                 "controllers": [],
                                 "services": [],
                                 "other_files": [],
-                                "table_name": "module1_table"
+                                "table_name": "table_name"
                             }
                         ]
                     }
                 ],
-                "authentication": false,
+                "authentication": true,
                 "notes": ""
             },
             {
@@ -49,7 +49,7 @@
                         "name": "name",
                         "type": "string",
                         "required": true,
-                        "description": "Nome do módulo a ser criado.",
+                        "description": "Nome do novo módulo a ser criado.",
                         "location": "body"
                     },
                     {
@@ -63,14 +63,14 @@
                         "name": "module",
                         "type": "string",
                         "required": true,
-                        "description": "Nome do diretório do módulo.",
+                        "description": "Nome do módulo que está sendo criado.",
                         "location": "body"
                     },
                     {
                         "name": "fields",
                         "type": "array",
                         "required": false,
-                        "description": "Campos da tabela a serem criados junto com o módulo.",
+                        "description": "Campos adicionais para a tabela do módulo.",
                         "location": "body"
                     }
                 ],
@@ -80,12 +80,12 @@
                         "description": "Módulo criado com sucesso.",
                         "example": {
                             "message": "Módulo criado com sucesso.",
-                            "path": "src\/new_module",
-                            "name": "new_module"
+                            "path": "src\/module_name",
+                            "name": "module_name"
                         }
                     }
                 ],
-                "authentication": false,
+                "authentication": true,
                 "notes": ""
             },
             {
@@ -108,7 +108,7 @@
                         "example": []
                     }
                 ],
-                "authentication": false,
+                "authentication": true,
                 "notes": ""
             },
             {
@@ -120,29 +120,29 @@
                         "name": "name",
                         "type": "string",
                         "required": false,
-                        "description": "Nome do módulo a ser removido.",
+                        "description": "Nome do módulo a ser excluído.",
                         "location": "body"
                     },
                     {
                         "name": "id",
-                        "type": "integer",
+                        "type": "string",
                         "required": false,
-                        "description": "Identificador do módulo a ser removido.",
+                        "description": "Identificador do módulo a ser excluído.",
                         "location": "body"
                     }
                 ],
                 "responses": [
                     {
                         "status": 200,
-                        "description": "Módulo removido com sucesso.",
+                        "description": "Módulo excluído com sucesso.",
                         "example": []
                     }
                 ],
-                "authentication": false,
+                "authentication": true,
                 "notes": ""
             }
         ],
-        "summary": "Controller responsável pela gestão de módulos, permitindo listar, criar, atualizar e deletar módulos."
+        "summary": "Controller responsável pela gestão de módulos, permitindo operações de criação, leitura, atualização e exclusão."
     },
-    "documentation_hash": "8db1ace0642fb0703342dd9b52c46d1b"
+    "documentation_hash": "e36e095e41086972220d88aeb2aed272"
 }

@@ -1,8 +1,8 @@
 {
     "module": "McpServer",
     "controller": "McpServer",
-    "controller_modified_time": 1770208752,
-    "generated_at": 1770219684,
+    "controller_modified_time": 1770583314,
+    "generated_at": 1770583925,
     "documentation": {
         "module": "McpServer",
         "controller": "McpServer",
@@ -23,28 +23,28 @@
                         "name": "method",
                         "type": "string",
                         "required": true,
-                        "description": "Nome do método a ser chamado.",
+                        "description": "Método a ser chamado.",
                         "location": "body"
                     },
                     {
                         "name": "params",
                         "type": "array",
                         "required": false,
-                        "description": "Parâmetros a serem passados para o método.",
+                        "description": "Parâmetros para o método especificado.",
                         "location": "body"
                     },
                     {
                         "name": "id",
                         "type": "string",
                         "required": false,
-                        "description": "Identificador da requisição, usado para correlacionar a resposta.",
+                        "description": "Identificador da requisição.",
                         "location": "body"
                     }
                 ],
                 "responses": [
                     {
                         "status": 200,
-                        "description": "Resposta JSON-RPC com o resultado do método chamado.",
+                        "description": "Resposta JSON-RPC com o resultado da operação.",
                         "example": {
                             "jsonrpc": "2.0",
                             "id": "1",
@@ -58,8 +58,9 @@
                     },
                     {
                         "status": 400,
-                        "description": "Erro de requisição, como body vazio ou JSON inválido.",
+                        "description": "Erro de requisição, como JSON inválido ou método ausente.",
                         "example": {
+                            "jsonrpc": "2.0",
                             "error": {
                                 "code": -32600,
                                 "message": "JSON inválido."
@@ -68,15 +69,15 @@
                     },
                     {
                         "status": 405,
-                        "description": "Método não permitido, apenas POST é aceito.",
+                        "description": "Método não permitido. Apenas POST é aceito.",
                         "example": []
                     }
                 ],
                 "authentication": false,
-                "notes": "O endpoint aceita apenas requisições POST com um corpo no formato JSON-RPC 2.0."
+                "notes": ""
             }
         ],
-        "summary": "Controller que processa requisições JSON-RPC 2.0 para o MCP Server, permitindo a interação com ferramentas e prompts do BuildCake."
+        "summary": "Controller que processa requisições JSON-RPC 2.0 para o MCP Server, permitindo interação com ferramentas e prompts do BuildCake."
     },
-    "documentation_hash": "7b7ddcc1914beef2dcdd502d7136813e"
+    "documentation_hash": "a4b0ce2ad592b9201177892949da54fb"
 }

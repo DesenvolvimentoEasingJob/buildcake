@@ -1,8 +1,8 @@
 {
     "module": "Assistant",
     "controller": "Assistant",
-    "controller_modified_time": 1770144358,
-    "generated_at": 1770144468,
+    "controller_modified_time": 1770494790,
+    "generated_at": 1770583903,
     "documentation": {
         "module": "Assistant",
         "controller": "Assistant",
@@ -16,14 +16,14 @@
                         "name": "question",
                         "type": "string",
                         "required": true,
-                        "description": "A pergunta a ser processada pela IA.",
+                        "description": "A pergunta que será processada pela IA.",
                         "location": "body"
                     },
                     {
                         "name": "template",
                         "type": "string",
                         "required": false,
-                        "description": "Nome do template a ser utilizado na construção da resposta.",
+                        "description": "Nome do template a ser utilizado para formatar a pergunta.",
                         "location": "body"
                     },
                     {
@@ -66,11 +66,11 @@
                         }
                     }
                 ],
-                "authentication": false,
-                "notes": ""
+                "authentication": true,
+                "notes": "Este endpoint requer autenticação via JWT."
             }
         ],
-        "summary": "Controller para interação com a IA utilizando a API do OpenAI, permitindo o envio de perguntas e recebimento de respostas."
+        "summary": "Esta controller permite interagir com a IA da OpenAI, processando perguntas e retornando respostas formatadas com base em templates opcionais."
     },
-    "documentation_hash": "7c4dbebeeb72d8fa08db18fa3a7c1635"
+    "documentation_hash": "7f8f29f836810e170f681f3615d4b898"
 }

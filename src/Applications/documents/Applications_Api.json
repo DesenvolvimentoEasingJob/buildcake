@@ -1,8 +1,8 @@
 {
     "module": "Applications",
     "controller": "Api",
-    "controller_modified_time": 1769364169,
-    "generated_at": 1769364527,
+    "controller_modified_time": 1770494753,
+    "generated_at": 1770583851,
     "documentation": {
         "module": "Applications",
         "controller": "Api",
@@ -10,13 +10,13 @@
             {
                 "method": "GET",
                 "path": "\/api\/Applications\/Api",
-                "description": "Lista todos os arquivos dentro das pastas controllers de todos os módulos, podendo filtrar os resultados com parâmetros.",
+                "description": "Retorna uma lista de todos os arquivos de controllers dentro dos módulos disponíveis, podendo aplicar filtros.",
                 "parameters": [
                     {
                         "name": "filters",
                         "type": "array",
                         "required": false,
-                        "description": "Filtros para buscar controllers específicos.",
+                        "description": "Filtros para aplicar na busca dos controllers.",
                         "location": "query"
                     }
                 ],
@@ -33,13 +33,13 @@
                         ]
                     }
                 ],
-                "authentication": false,
+                "authentication": true,
                 "notes": ""
             },
             {
                 "method": "POST",
                 "path": "\/api\/Applications\/Api",
-                "description": "Cria um novo controller baseado no template fornecido, requerendo o nome e o módulo.",
+                "description": "Cria um novo controller baseado nos dados fornecidos.",
                 "parameters": [
                     {
                         "name": "name",
@@ -59,7 +59,7 @@
                         "name": "filename",
                         "type": "string",
                         "required": false,
-                        "description": "Nome do arquivo do controller, se diferente do nome.",
+                        "description": "Nome do arquivo do controller, caso diferente do nome.",
                         "location": "body"
                     }
                 ],
@@ -74,13 +74,13 @@
                         }
                     }
                 ],
-                "authentication": false,
+                "authentication": true,
                 "notes": ""
             },
             {
                 "method": "PUT",
                 "path": "\/api\/Applications\/Api",
-                "description": "Atualiza um controller existente, requerendo o nome e o módulo.",
+                "description": "Atualiza um controller existente com os dados fornecidos.",
                 "parameters": [
                     {
                         "name": "name",
@@ -108,13 +108,13 @@
                         }
                     }
                 ],
-                "authentication": false,
+                "authentication": true,
                 "notes": ""
             },
             {
                 "method": "DELETE",
                 "path": "\/api\/Applications\/Api",
-                "description": "Deleta um controller existente, requerendo o nome e o módulo.",
+                "description": "Deleta um controller existente com base nos dados fornecidos.",
                 "parameters": [
                     {
                         "name": "name",
@@ -142,10 +142,11 @@
                         }
                     }
                 ],
-                "authentication": false,
+                "authentication": true,
                 "notes": ""
             }
         ],
-        "summary": "Controller que gerencia a criação, atualização, listagem e deleção de controllers dentro dos módulos da aplicação."
-    }
+        "summary": "Controller responsável por gerenciar operações relacionadas a controllers dentro dos módulos da aplicação."
+    },
+    "documentation_hash": "fc682cdd2569059db3c7a36d25aba43a"
 }

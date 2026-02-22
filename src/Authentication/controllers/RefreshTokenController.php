@@ -7,15 +7,29 @@ Utils::IncludeService('RefreshToken', 'Authentication');
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     
-    // Obter refresh token do body ou do header
+    // Obter refresh token do body (JSON ou form) ou do header
     $refreshToken = null;
+    $body = null;
+    $rawInput = file_get_contents('php://input');
+    if ($rawInput !== false && $rawInput !== '') {
+        $body = json_decode($rawInput, true);
+    }
 
-    // Tentar obter do body primeiro
-    if (isset($_POST['refreshToken'])) {
+    // Tentar obter do body primeiro (JSON)
+    if (is_array($body)) {
+        if (!empty($body['refreshToken'])) {
+            $refreshToken = $body['refreshToken'];
+        } elseif (!empty($body['refresh_token'])) {
+            $refreshToken = $body['refresh_token'];
+        }
+    }
+    // Fallback: form POST
+    if ($refreshToken === null && isset($_POST['refreshToken'])) {
         $refreshToken = $_POST['refreshToken'];
-    } elseif (isset($_POST['refresh_token'])) {
+    } elseif ($refreshToken === null && isset($_POST['refresh_token'])) {
         $refreshToken = $_POST['refresh_token'];
-    } else {
+    }
+    if ($refreshToken === null) {
         // Tentar obter do header Authorization
         $headers = getallheaders();
         if ($headers) {

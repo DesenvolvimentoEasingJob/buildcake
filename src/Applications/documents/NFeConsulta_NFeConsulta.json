@@ -1,0 +1,70 @@
+{
+  "module": "NFeConsulta",
+  "controller": "NFeConsulta",
+  "controller_modified_time": null,
+  "generated_at": null,
+  "documentation": {
+    "module": "NFeConsulta",
+    "controller": "NFeConsulta",
+    "endpoints": [
+      {
+        "method": "GET",
+        "path": "/api/NFeConsulta/NFeConsulta",
+        "description": "Consulta NFe na SEFAZ (Portal Nacional - nfe.fazenda.gov.br) pela chave de acesso. Utiliza certificado digital A3 por arquivo (.pfx). Retorna o XML da nota com dados, itens e demais informações para cadastro no sistema.",
+        "parameters": [
+          {
+            "name": "chave",
+            "type": "string",
+            "required": true,
+            "description": "Chave de acesso da NFe (44 dígitos).",
+            "location": "query"
+          }
+        ],
+        "responses": [
+          {
+            "status": 200,
+            "description": "Consulta processada com sucesso. Retorna o XML da NFe.",
+            "example": {
+              "xml": "string (XML da nfeProc/NFe)",
+              "chave": "44 dígitos"
+            }
+          },
+          {
+            "status": 400,
+            "description": "Chave inválida (deve ter 44 dígitos)."
+          },
+          {
+            "status": 404,
+            "description": "NFe não encontrada ou indisponível (prazo 90 dias / manifestação do destinatário)."
+          },
+          {
+            "status": 502,
+            "description": "Erro ao consultar SEFAZ (certificado, rede, etc.)."
+          }
+        ],
+        "authentication": true
+      },
+      {
+        "method": "POST",
+        "path": "/api/NFeConsulta/NFeConsulta",
+        "description": "Endpoint unificado: envia codigo_xml (NFe ou CTe) e retorna PDF em Base64.",
+        "parameters": [
+          {
+            "name": "codigo_xml",
+            "type": "string",
+            "required": true,
+            "description": "XML completo da NFe ou CTe.",
+            "location": "body"
+          }
+        ],
+        "responses": [
+          { "status": 200, "description": "Retorna status, pdf.base64, pdf.filename." },
+          { "status": 400, "description": "codigo_xml ausente ou vazio." },
+          { "status": 502, "description": "Erro na API Consulta DANFE." }
+        ],
+        "authentication": true
+      }
+    ],
+    "summary": "NFe/CTe: consulta por chave (GET) e geração de DANFE/DACTE por XML (POST)."
+  }
+}

@@ -1,8 +1,8 @@
 {
     "module": "DataApi",
     "controller": "DataApi",
-    "controller_modified_time": 1769692271,
-    "generated_at": 1769707933,
+    "controller_modified_time": 1770494811,
+    "generated_at": 1770583921,
     "documentation": {
         "module": "DataApi",
         "controller": "DataApi",
@@ -10,13 +10,13 @@
             {
                 "method": "GET",
                 "path": "\/api\/DataApi\/DataApi",
-                "description": "Retorna dados da tabela especificada através do parâmetro 'table'.",
+                "description": "Retorna dados da tabela especificada no parâmetro 'table'.",
                 "parameters": [
                     {
                         "name": "table",
                         "type": "string",
                         "required": true,
-                        "description": "Nome da tabela da qual os dados devem ser retornados.",
+                        "description": "Nome da tabela da qual os dados devem ser recuperados.",
                         "location": "query"
                     }
                 ],
@@ -28,11 +28,11 @@
                     },
                     {
                         "status": 404,
-                        "description": "Nenhum(a) registro encontrado na tabela especificada.",
+                        "description": "Nenhum(a) {table} encontrado",
                         "example": []
                     }
                 ],
-                "authentication": false,
+                "authentication": true,
                 "notes": ""
             },
             {
@@ -55,7 +55,7 @@
                         "example": []
                     }
                 ],
-                "authentication": false,
+                "authentication": true,
                 "notes": ""
             },
             {
@@ -78,7 +78,7 @@
                         "example": []
                     }
                 ],
-                "authentication": false,
+                "authentication": true,
                 "notes": ""
             },
             {
@@ -90,22 +90,22 @@
                         "name": "data",
                         "type": "object",
                         "required": true,
-                        "description": "ID ou conjunto de IDs dos registros a serem removidos.",
+                        "description": "ID ou conjunto de IDs a serem removidos.",
                         "location": "body"
                     }
                 ],
                 "responses": [
                     {
                         "status": 200,
-                        "description": "Dados removidos com sucesso.",
+                        "description": "Dados processados com sucesso.",
                         "example": []
                     }
                 ],
-                "authentication": false,
+                "authentication": true,
                 "notes": ""
             }
         ],
-        "summary": "Controller responsável por gerenciar operações CRUD na tabela especificada, permitindo a recuperação, inserção, edição e remoção de dados."
+        "summary": "Controller responsável por gerenciar operações CRUD na tabela especificada através de endpoints REST."
     },
-    "documentation_hash": "86f6d30bf98f0c53f52944c99210e688"
+    "documentation_hash": "3f71914fe8f8642c4786b945357fe516"
 }

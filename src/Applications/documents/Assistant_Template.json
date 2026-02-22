@@ -1,8 +1,8 @@
 {
     "module": "Assistant",
     "controller": "Template",
-    "controller_modified_time": 1769357044,
-    "generated_at": 1769357066,
+    "controller_modified_time": 1770494797,
+    "generated_at": 1770583916,
     "documentation": {
         "module": "Assistant",
         "controller": "Template",
@@ -16,41 +16,37 @@
                         "name": "filters",
                         "type": "array",
                         "required": false,
-                        "description": "Filtros opcionais para restringir a lista de templates retornados.",
+                        "description": "Filtros opcionais para limitar os templates retornados.",
                         "location": "query"
                     }
                 ],
                 "responses": [
                     {
                         "status": 200,
-                        "description": "Lista de templates disponíveis, cada um com nome, nome do arquivo, caminho, data de modificação e tamanho.",
+                        "description": "Lista de templates processada com sucesso.",
                         "example": [
                             {
                                 "name": "template1",
                                 "filename": "template1.txt",
                                 "path": "src\/Assistant\/templates\/template1.txt",
-                                "modified_time": 1633036800,
+                                "modified_time": 1633072800,
                                 "size": 1024
                             },
                             {
                                 "name": "template2",
                                 "filename": "template2.txt",
                                 "path": "src\/Assistant\/templates\/template2.txt",
-                                "modified_time": 1633123200,
+                                "modified_time": 1633072801,
                                 "size": 2048
                             }
                         ]
-                    },
-                    {
-                        "status": 405,
-                        "description": "Método não permitido.",
-                        "example": []
                     }
                 ],
-                "authentication": false,
-                "notes": ""
+                "authentication": true,
+                "notes": "O endpoint requer autenticação via JWT."
             }
         ],
         "summary": "Gerencia templates, permitindo listar e filtrar templates disponíveis."
-    }
+    },
+    "documentation_hash": "536d78689fe777f26ba9b52f1949e46f"
 }

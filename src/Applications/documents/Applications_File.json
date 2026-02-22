@@ -1,8 +1,8 @@
 {
     "module": "Applications",
     "controller": "File",
-    "controller_modified_time": 1764073521,
-    "generated_at": 1769304640,
+    "controller_modified_time": 1770494771,
+    "generated_at": 1770583863,
     "documentation": {
         "module": "Applications",
         "controller": "File",
@@ -10,20 +10,20 @@
             {
                 "method": "GET",
                 "path": "\/api\/Applications\/File",
-                "description": "Lista todos os arquivos dentro do diretório src ou retorna o conteúdo de um arquivo específico se um filtro for aplicado.",
+                "description": "Lista todos os arquivos dentro do diretório src. Se filtros forem fornecidos, retorna o conteúdo do arquivo correspondente ao filtro.",
                 "parameters": [
                     {
                         "name": "path",
                         "type": "string",
                         "required": false,
-                        "description": "Caminho do arquivo para retornar seu conteúdo.",
+                        "description": "Caminho do arquivo a ser retornado.",
                         "location": "query"
                     },
                     {
                         "name": "filepath",
                         "type": "string",
                         "required": false,
-                        "description": "Caminho do arquivo para retornar seu conteúdo.",
+                        "description": "Caminho do arquivo a ser retornado.",
                         "location": "query"
                     }
                 ],
@@ -42,7 +42,7 @@
                         }
                     }
                 ],
-                "authentication": false,
+                "authentication": true,
                 "notes": ""
             },
             {
@@ -55,21 +55,21 @@
                         "type": "string",
                         "required": true,
                         "description": "Diretório onde o arquivo será criado.",
-                        "location": "form"
+                        "location": "formData"
                     },
                     {
                         "name": "filename",
                         "type": "string",
                         "required": true,
                         "description": "Nome do arquivo a ser criado.",
-                        "location": "form"
+                        "location": "formData"
                     },
                     {
                         "name": "content",
                         "type": "string",
                         "required": true,
-                        "description": "Conteúdo do arquivo a ser criado.",
-                        "location": "form"
+                        "description": "Conteúdo que será escrito no arquivo.",
+                        "location": "formData"
                     }
                 ],
                 "responses": [
@@ -84,7 +84,7 @@
                         }
                     }
                 ],
-                "authentication": false,
+                "authentication": true,
                 "notes": ""
             },
             {
@@ -97,14 +97,14 @@
                         "type": "string",
                         "required": true,
                         "description": "Caminho do arquivo a ser editado.",
-                        "location": "form"
+                        "location": "formData"
                     },
                     {
                         "name": "content",
                         "type": "string",
                         "required": true,
-                        "description": "Novo conteúdo para o arquivo.",
-                        "location": "form"
+                        "description": "Novo conteúdo que será escrito no arquivo.",
+                        "location": "formData"
                     }
                 ],
                 "responses": [
@@ -117,20 +117,20 @@
                         }
                     }
                 ],
-                "authentication": false,
+                "authentication": true,
                 "notes": ""
             },
             {
                 "method": "DELETE",
                 "path": "\/api\/Applications\/File",
-                "description": "Deleta um arquivo existente especificado pelo caminho fornecido.",
+                "description": "Deleta um arquivo especificado pelo caminho fornecido.",
                 "parameters": [
                     {
                         "name": "filepath",
                         "type": "string",
                         "required": true,
                         "description": "Caminho do arquivo a ser deletado.",
-                        "location": "form"
+                        "location": "formData"
                     }
                 ],
                 "responses": [
@@ -143,10 +143,11 @@
                         }
                     }
                 ],
-                "authentication": false,
+                "authentication": true,
                 "notes": ""
             }
         ],
-        "summary": "A controller File gerencia operações de arquivos, permitindo listar, criar, editar e deletar arquivos dentro do diretório src."
-    }
+        "summary": "Controller responsável pela manipulação de arquivos, permitindo listar, criar, editar e deletar arquivos no diretório src."
+    },
+    "documentation_hash": "8f4eabfbb8aab842eae13286ce57f27a"
 }

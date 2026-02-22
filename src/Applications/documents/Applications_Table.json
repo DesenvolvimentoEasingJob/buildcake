@@ -1,8 +1,8 @@
 {
     "module": "Applications",
     "controller": "Table",
-    "controller_modified_time": 1770388252,
-    "generated_at": 1770404955,
+    "controller_modified_time": 1770494783,
+    "generated_at": 1770583899,
     "documentation": {
         "module": "Applications",
         "controller": "Table",
@@ -16,7 +16,7 @@
                         "name": "table_name",
                         "type": "string",
                         "required": false,
-                        "description": "Nome da tabela para listar suas colunas.",
+                        "description": "Nome da tabela para filtrar as colunas.",
                         "location": "query"
                     }
                 ],
@@ -27,7 +27,7 @@
                         "example": []
                     }
                 ],
-                "authentication": false,
+                "authentication": true,
                 "notes": ""
             },
             {
@@ -39,7 +39,7 @@
                         "name": "table_name",
                         "type": "string",
                         "required": true,
-                        "description": "Nome da tabela a ser criada.",
+                        "description": "Nome da nova tabela a ser criada.",
                         "location": "body"
                     },
                     {
@@ -53,25 +53,25 @@
                         "name": "foreign_keys",
                         "type": "array",
                         "required": false,
-                        "description": "Array de chaves estrangeiras a serem adicionadas.",
+                        "description": "Array de chaves estrangeiras a serem adicionadas à tabela.",
                         "location": "body"
                     },
                     {
                         "name": "additional_indexes",
                         "type": "array",
                         "required": false,
-                        "description": "Array de índices adicionais a serem criados.",
+                        "description": "Array de índices adicionais a serem criados na tabela.",
                         "location": "body"
                     }
                 ],
                 "responses": [
                     {
                         "status": 200,
-                        "description": "Dados processados com sucesso.",
+                        "description": "Tabela criada com sucesso.",
                         "example": []
                     }
                 ],
-                "authentication": false,
+                "authentication": true,
                 "notes": ""
             },
             {
@@ -90,18 +90,18 @@
                         "name": "fields",
                         "type": "array",
                         "required": true,
-                        "description": "Array de campos com ações (add, remove, alter).",
+                        "description": "Array de campos que devem ser adicionados, removidos ou alterados.",
                         "location": "body"
                     }
                 ],
                 "responses": [
                     {
                         "status": 200,
-                        "description": "Dados processados com sucesso.",
+                        "description": "Tabela atualizada com sucesso.",
                         "example": []
                     }
                 ],
-                "authentication": false,
+                "authentication": true,
                 "notes": ""
             },
             {
@@ -120,15 +120,15 @@
                 "responses": [
                     {
                         "status": 200,
-                        "description": "Dados processados com sucesso.",
+                        "description": "Tabela deletada com sucesso.",
                         "example": []
                     }
                 ],
-                "authentication": false,
+                "authentication": true,
                 "notes": ""
             }
         ],
-        "summary": "Controlador responsável pela manipulação de tabelas no banco de dados, permitindo listar, criar, alterar e deletar tabelas."
+        "summary": "Controller responsável pela manipulação de tabelas no banco de dados, permitindo listar, criar, alterar e deletar tabelas."
     },
-    "documentation_hash": "97f890af7b76d2447671752ae61fb9b0"
+    "documentation_hash": "522d7ae387eed78979c4242c05277129"
 }

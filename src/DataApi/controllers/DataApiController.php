@@ -4,7 +4,7 @@ use BuildCake\Utils\Utils;
 
 Utils::IncludeService('Jwt','Authentication');
 
-//$userData = JWTService::validateAuth();  // Valida o token JWT
+$userData = JWTService::validateAuth();  // Valida o token JWT
 
 Utils::IncludeService('DataApi', 'DataApi');
 
