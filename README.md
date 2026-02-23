@@ -846,7 +846,7 @@ Todas as respostas seguem o formato:
 
 ### Estrutura de Templates
 
-Os templates estão em `src/Applications/templates/`:
+Os templates estão em `src/Scaffold/templates/`:
 
 - `controller.template` - Template para controllers
 - `service.template` - Template para services

@@ -79,7 +79,7 @@ class TableService {
         }
 
         $tableName = $data['table_name'];
-        $templatePath = "src/Applications/templates/table.template";
+        $templatePath = "src/Scaffold/templates/table.template";
         
         // Verifica se o template existe
         if (!file_exists($templatePath)) {

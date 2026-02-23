@@ -1,5 +1,14 @@
 {
-    "name": "buildcake/core",
+    "name": "buildcake/app",
+    "description": "BuildCake Application Skeleton",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "BuildCake",
+            "email": "felipe@buildcake.com.br"
+        }
+    ],
     "autoload": {
         "psr-4": {
             "Buildcake\\Core\\": "src/"

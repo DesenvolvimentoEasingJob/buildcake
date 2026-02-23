@@ -69,7 +69,7 @@ class ServiceService {
 
         $moduleName = $data['module'];
         $name = $data['name'];
-        $templatePath = "src/Applications/templates/Service.template";
+        $templatePath = "src/Scaffold/templates/Service.template";
         
         // Verifica se o template existe
         if (!file_exists($templatePath)) {

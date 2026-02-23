@@ -69,7 +69,7 @@ class ApiService {
 
         $moduleName = $data['module'];
         $name = $data['name'];
-        $templatePath = "src/Applications/templates/controller.template";
+        $templatePath = "src/Scaffold/templates/controller.template";
         
         // Verifica se o template existe
         if (!file_exists($templatePath)) {

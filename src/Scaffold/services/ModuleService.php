@@ -257,7 +257,7 @@ class ModuleService {
      * @param string $moduleName Nome do módulo
      */
     private function deleteModuleDocumentation($moduleName) {
-        $documentsPath = "src/Applications/documents/";
+        $documentsPath = "src/Scaffold/documents/";
         
         // Verifica se a pasta de documentos existe
         if (!is_dir($documentsPath)) {

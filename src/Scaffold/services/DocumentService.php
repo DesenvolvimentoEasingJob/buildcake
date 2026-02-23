@@ -14,7 +14,7 @@ class DocumentService {
         $this->apiKey = $_ENV['OPENAI_API_KEY'] ?? null;
         // Carrega o modelo do .env, padrão: gpt-4o-mini
         $this->model = $_ENV['OPENAI_MODEL'] ?? 'gpt-4o-mini';
-        $this->documentsPath = "src/Applications/documents/";
+        $this->documentsPath = "src/Scaffold/documents/";
         $this->srcPath = "src/";
         $this->versionFile = $this->documentsPath . "api_version.json";
         
