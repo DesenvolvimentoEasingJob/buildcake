@@ -1,25 +1,43 @@
-# BuildCake Backend API
+# BuildCake
 
-Backend PHP modular para criação rápida de APIs RESTful com geração automática de módulos, controllers, services e tabelas de banco de dados.
+Framework PHP instalável via Composer para criação rápida de APIs RESTful, com geração automática de módulos, controllers, services e tabelas de banco de dados.
+
+Disponível em **duas edições**: **completa** (com usuários, autenticação e assistant) e **enxuta** (apenas Database, Scaffold e DataApi, com JWT stub customizável).
 
 ## 🚀 Quick Start
 
-1. **Configure o ambiente**:
+### Instalação via Composer (recomendado)
+
+```bash
+composer create-project buildcake/app meu-projeto
+cd meu-projeto
+```
+
+O script pós-instalação cria o `.env` a partir de `.env.example` se não existir. Ajuste o `.env` (banco, JWT, etc.) e inicie o servidor ou use Docker.
+
+### Depois de instalar
+
+1. **Configure o ambiente** (se o `.env` foi criado pelo script, revise as variáveis):
    ```bash
-   cp .env.example .env  # Configure suas variáveis de ambiente
+   # Opcional: copiar manualmente se preferir
+   cp .env.example .env
+   ```
+
+2. **Com Docker**:
+   ```bash
    docker-compose up -d
    ```
 
-2. **Faça login**:
+3. **Faça login** (edição completa):
    ```bash
    curl -X POST http://localhost:8000/api/Authentication/Login \
      -H "Content-Type: application/json" \
      -d '{"email":"seu@email.com","password":"sua_senha"}'
    ```
 
-3. **Crie seu primeiro módulo**:
+4. **Crie seu primeiro módulo**:
    ```bash
-   curl -X POST http://localhost:8000/api/Applications/Module \
+   curl -X POST http://localhost:8000/api/Scaffold/Module \
      -H "Content-Type: application/json" \
      -H "Authorization: Bearer {seu_token}" \
      -d '{
@@ -32,22 +50,18 @@ Backend PHP modular para criação rápida de APIs RESTful com geração automá
      }'
    ```
 
-4. **Use a API criada**:
+5. **Use a API criada**:
    ```bash
-   # Listar produtos
-   curl http://localhost:8000/api/Products/Product \
-     -H "Authorization: Bearer {seu_token}"
-   
-   # Criar produto
+   curl http://localhost:8000/api/Products/Product -H "Authorization: Bearer {seu_token}"
    curl -X POST http://localhost:8000/api/Products/Product \
-     -H "Content-Type: application/json" \
-     -H "Authorization: Bearer {seu_token}" \
+     -H "Content-Type: application/json" -H "Authorization: Bearer {seu_token}" \
      -d '{"name":"Produto Teste"}'
    ```
 
 ## 📋 Índice
 
 - [Visão Geral](#visão-geral)
+- [Edições do framework](#edições-do-framework)
 - [Arquitetura](#arquitetura)
 - [Requisitos](#requisitos)
 - [Instalação](#instalação)
@@ -71,22 +85,37 @@ BuildCake é uma plataforma backend que permite criar módulos completos de API 
 - ✅ Gera migrations SQL para versionamento
 - ✅ Aplica autenticação JWT automaticamente
 
+## 📦 Edições do framework
+
+O BuildCake pode ser servido em duas edições:
+
+| Edição | Módulos incluídos | Uso |
+|--------|-------------------|-----|
+| **Completa** | Users, Authentication, Database, Scaffold, DataApi, Assistant | Aplicações com login, usuários, sessões e ferramentas de assistente (templates, criação de módulos, edição de arquivos). |
+| **Enxuta** | Database, Scaffold, DataApi + Authentication (JWT stub) | APIs sem gestão de usuários; o módulo Authentication expõe um JWT com os mesmos métodos mas que **sempre retornam positivo**, para você customizar como quiser. |
+
+Na edição enxuta, `Utils::IncludeService('Jwt','Authentication')` continua disponível: a interface é a mesma, com implementação “sempre positiva”, para quem for implementar poder substituir ou adaptar sem quebrar Scaffold e DataApi.
+
 ## 🏗️ Arquitetura
 
-O projeto segue uma arquitetura modular baseada em MVC:
+O projeto segue uma arquitetura modular baseada em convenção:
 
 ```
 src/
-├── {Module}/              # Módulo da aplicação
+├── {Module}/              # Módulo da aplicação (ex.: Products)
 │   ├── controllers/      # Controllers da API
 │   └── services/         # Lógica de negócio
-├── Applications/          # Módulo de gerenciamento
-│   ├── controllers/      # Controllers para criar módulos/APIs/tabelas
-│   ├── services/          # Services de gerenciamento
-│   └── templates/        # Templates para geração de código
-└── Authentication/       # Módulo de autenticação
-    ├── controllers/      # Login, Logout, Refresh Token
-    └── services/        # JWT, Session, User
+├── Scaffold/              # Geração de código (módulos, tabelas, APIs, services)
+│   ├── controllers/      # Module, Table, Api, Service, SQL, Document
+│   ├── services/
+│   └── documents/
+├── DataApi/               # API de dados genérica
+├── Database/              # Migrations SQL
+├── Authentication/       # Login, JWT, sessões (completa) ou JWT stub (enxuta)
+│   ├── controllers/      # Login, Logout, RefreshToken, ValidateToken
+│   └── services/          # Jwt, User, Session, Login, RefreshToken
+├── Users/                 # (edição completa) Usuários, perfis, roles, sessões
+└── Assistant/             # (edição completa) Templates, criação de módulos, edição de arquivos
 ```
 
 ### Sistema de Roteamento
@@ -106,41 +135,42 @@ O roteamento é baseado em convenção de nomes:
 
 ## 🚀 Instalação
 
-### Opção 1: Docker (Recomendado)
+### Opção 1: Composer create-project (recomendado)
 
 ```bash
-# Clone o repositório
-git clone <repository-url>
-cd backend
+composer create-project buildcake/app meu-projeto
+cd meu-projeto
+```
 
-# Configure o arquivo .env (veja seção Configuração)
+- O script **post-install** do Composer cria o `.env` a partir de `.env.example` se o `.env` ainda não existir.
+- Ajuste o `.env` (banco de dados, `JWT_SECRET`, etc.) e suba o servidor (PHP embutido, Docker ou Apache/Nginx).
 
-# Inicie os containers
+### Opção 2: Docker
+
+```bash
+# Após criar o projeto com composer create-project (ou clonar o repositório)
+cd meu-projeto
+# Configure o .env se necessário
 docker-compose up -d
-
-# Instale as dependências
+# Se tiver clonado sem composer install:
 docker-compose exec web composer install
 ```
 
-A API estará disponível em `http://localhost:8000`
+A API estará disponível em `http://localhost:8000`.
 
-### Opção 2: Instalação Manual
+### Opção 3: Instalação manual (clone + composer)
 
 ```bash
-# Clone o repositório
 git clone <repository-url>
 cd backend
-
-# Instale as dependências
 composer install
-
-# Configure o servidor web (Apache/Nginx) para apontar para o diretório raiz
-# Configure o arquivo .env
+# O .env é criado automaticamente a partir de .env.example se não existir
+# Ajuste o .env e configure o servidor web (Apache/Nginx) para a pasta public/
 ```
 
 ## ⚙️ Configuração
 
-Crie um arquivo `.env` na raiz do projeto:
+Na instalação via `composer create-project` ou `composer install`, o `.env` é criado automaticamente a partir de `.env.example` quando não existir. Caso contrário, crie manualmente na raiz do projeto:
 
 ```env
 # Ambiente
@@ -176,44 +206,36 @@ Certifique-se de que o banco de dados existe e está acessível. O sistema criar
 ## 📁 Estrutura do Projeto
 
 ```
-backend/
+back/
+├── public/
+│   ├── index.php                # Ponto de entrada da aplicação
+│   └── .htaccess
 ├── src/
-│   ├── Applications/          # Módulo de gerenciamento
+│   ├── Scaffold/                # Geração de módulos, tabelas, APIs, services
 │   │   ├── controllers/
 │   │   │   ├── ApiController.php
 │   │   │   ├── ModuleController.php
 │   │   │   ├── ServiceController.php
-│   │   │   └── TableController.php
+│   │   │   ├── TableController.php
+│   │   │   ├── SQLController.php
+│   │   │   └── DocumentController.php
 │   │   ├── services/
-│   │   │   ├── ApiService.php
-│   │   │   ├── ModuleService.php
-│   │   │   ├── ServiceService.php
-│   │   │   └── TableService.php
-│   │   └── templates/
-│   │       ├── controller.template
-│   │       ├── service.template
-│   │       └── table.template
-│   ├── Authentication/         # Módulo de autenticação
-│   │   ├── controllers/
-│   │   │   ├── LoginController.php
-│   │   │   ├── LogoutController.php
-│   │   │   ├── RefreshTokenController.php
-│   │   │   └── ValidateTokenController.php
-│   │   └── services/
-│   │       ├── JwtService.php
-│   │       ├── LoginService.php
-│   │       ├── RefreshTokenService.php
-│   │       ├── SessionService.php
-│   │       └── UserService.php
+│   │   └── documents/
+│   ├── DataApi/                 # API de dados
+│   │   └── controllers/
+│   ├── Authentication/
+│   │   ├── controllers/         # Login, Logout, RefreshToken, ValidateToken
+│   │   └── services/            # Jwt, User, Session, Login, RefreshToken
+│   ├── Users/                   # (edição completa)
+│   ├── Assistant/               # (edição completa) Templates, ModuleCreation, FileEdit
 │   └── Database/
 │       └── migrations/          # Migrations SQL geradas automaticamente
 ├── vendor/                      # Dependências Composer
-├── index.php                    # Ponto de entrada da aplicação
-├── Utils.php                    # Utilitários do sistema
-├── composer.json
+├── composer.json                # Inclui post-install (cria .env a partir de .env.example)
 ├── docker-compose.yml
 ├── Dockerfile
-└── .env                         # Configurações (não versionado)
+├── .env.example
+└── .env                         # Configurações (criado pelo post-install ou manualmente; não versionado)
 ```
 
 ## 🔐 Autenticação
@@ -284,19 +306,19 @@ Authorization: Bearer {accessToken}
 ### Endpoints de Gerenciamento
 
 #### Listar Módulos
-- **GET** `/api/Applications/Module`
+- **GET** `/api/Scaffold/Module`
 - **Query Params**: `name={nome}` (opcional, para filtrar)
 
 #### Criar Módulo Completo
-- **POST** `/api/Applications/Module`
+- **POST** `/api/Scaffold/Module`
 - Veja seção [Criando um Módulo Completo](#criando-um-módulo-completo)
 
 #### Listar APIs/Controllers
-- **GET** `/api/Applications/Api`
+- **GET** `/api/Scaffold/Api`
 - **Query Params**: `module={nome}` (opcional)
 
 #### Criar Controller
-- **POST** `/api/Applications/Api`
+- **POST** `/api/Scaffold/Api`
 - **Body**:
 ```json
 {
@@ -306,27 +328,27 @@ Authorization: Bearer {accessToken}
 ```
 
 #### Listar Tabelas
-- **GET** `/api/Applications/Table`
+- **GET** `/api/Scaffold/Table`
 - **Query Params**: `table_name={nome}` (opcional, para ver colunas)
 
 #### Criar Tabela
-- **POST** `/api/Applications/Table`
+- **POST** `/api/Scaffold/Table`
 - Veja seção [Criando um Módulo Completo](#criando-um-módulo-completo)
 
 #### Listar Services
-- **GET** `/api/Applications/Service`
+- **GET** `/api/Scaffold/Service`
 - **Query Params**: `module={nome}` (opcional)
 
 ## 🎨 Criando um Módulo Completo
 
-A forma mais eficiente de criar um módulo completo é usando o endpoint `/api/Applications/Module`, que cria tudo de uma vez.
+A forma mais eficiente de criar um módulo completo é usando o endpoint `/api/Scaffold/Module`, que cria tudo de uma vez.
 
 ### Exemplo Básico Completo
 
 Este é um exemplo completo de como criar um módulo que gera automaticamente a API, service e tabela:
 
 ```bash
-curl --location 'http://localhost:8000/api/Applications/Module' \
+curl --location 'http://localhost:8000/api/Scaffold/Module' \
 --header 'Content-Type: application/json' \
 --data '{
   "name":"NameTeste",
@@ -356,7 +378,7 @@ Este comando cria:
 ### Exemplo: Criar Módulo "Products"
 
 ```bash
-curl --location 'http://localhost:8000/api/Applications/Module' \
+curl --location 'http://localhost:8000/api/Scaffold/Module' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer {seu_token}' \
 --data '{
@@ -693,7 +715,7 @@ function ProductsList() {
 ### Criar um Módulo de Blog
 
 ```bash
-curl --location 'http://localhost:8000/api/Applications/Module' \
+curl --location 'http://localhost:8000/api/Scaffold/Module' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer {token}' \
 --data '{
@@ -846,7 +868,7 @@ Todas as respostas seguem o formato:
 
 ### Estrutura de Templates
 
-Os templates estão em `src/Scaffold/templates/`:
+Os templates do framework estão no pacote `buildcake/framework`. Para customização na aplicação, consulte a documentação do pacote. Estrutura típica de templates (Scaffold):
 
 - `controller.template` - Template para controllers
 - `service.template` - Template para services
@@ -854,17 +876,17 @@ Os templates estão em `src/Scaffold/templates/`:
 
 ### Adicionando Novos Tipos de Campo
 
-Edite `TableService.php` no método `generateFieldsSQL()` para adicionar suporte a novos tipos de dados.
+Para estender tipos de campo, consulte o pacote `buildcake/framework` (Scaffold): método `generateFieldsSQL()` em `TableService`.
 
 ## 📄 Licença
 
-[Especificar licença do projeto]
+MIT
 
 ## 🤝 Contribuindo
 
-[Instruções para contribuição]
+felipe@buildcake.com.br
 
 ## 📞 Suporte
 
-[Informações de contato/suporte]
+felipe@buildcake.com.br
 
