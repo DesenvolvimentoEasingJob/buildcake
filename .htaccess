@@ -1,16 +1,20 @@
+# Usado só se o document root for back/ (ex.: hospedagem). O ideal é root = public/.
+# Protege a raiz: bloqueia acesso direto a pastas sensíveis (403).
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    # Bloquear acesso direto a vendor, src, .env e arquivos sensíveis
+    RewriteRule ^(vendor|src|config|\.env|\.git|composer\.(json|lock))(/|$) - [F,L]
+</IfModule>
+
+<FilesMatch "^\.">
+    Require all denied
+</FilesMatch>
+
 # CORS Headers
 Header always set Access-Control-Allow-Origin "*"
 Header always set Access-Control-Allow-Methods "*"
 Header always set Access-Control-Max-Age "1000"
 Header always set Access-Control-Allow-Headers "*"
-
-# Ativar engine de reescrita
-RewriteEngine On
-
-# Bloquear acesso ao .env
-<FilesMatch "^\.env">
-    Require all denied
-</FilesMatch>
 
 # Permitir requisições OPTIONS (CORS preflight)
 RewriteCond %{REQUEST_METHOD} OPTIONS
@@ -23,8 +27,8 @@ RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 
-# Redirecionar tudo para index.php
-RewriteRule ^(.*)$ index.php [QSA,L]
+# Redirecionar tudo para public/index.php (front controller)
+RewriteRule ^(.*)$ public/index.php [QSA,L]
 
 # php -- BEGIN cPanel-generated handler, do not edit
 <IfModule mime_module>

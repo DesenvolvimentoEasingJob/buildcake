@@ -1,0 +1,6 @@
+# Não sobrescrever o vendor instalado no build
+vendor
+.env
+.git
+.gitignore
+*.md

@@ -1,12 +1,13 @@
 <?php
+
 use BuildCake\Utils\Utils;
+use BuildCake\Framework\Scaffold\ScaffoldFactory;
 
 Utils::IncludeService('Jwt','Authentication');
-Utils::IncludeService('Api', 'Applications');
+//$userData = JWTService::validateAuth();
 
-$userData = JWTService::validateAuth(); 
-
-$api = new ApiService();
+$projectRoot = dirname(__DIR__, 2);
+$api = ScaffoldFactory::apiService($projectRoot);
 
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     $response = $api->getApi($_GET);

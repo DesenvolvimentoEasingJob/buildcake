@@ -1,0 +1,25 @@
+# Só esta pasta é exposta na web; o PHP lê o resto (vendor, src, .env) por código
+# CORS Headers
+<IfModule mod_headers.c>
+    Header always set Access-Control-Allow-Origin "*"
+    Header always set Access-Control-Allow-Methods "*"
+    Header always set Access-Control-Max-Age "1000"
+    Header always set Access-Control-Allow-Headers "*"
+</IfModule>
+
+Options -Indexes
+RewriteEngine On
+
+# Permitir requisições OPTIONS (CORS preflight)
+RewriteCond %{REQUEST_METHOD} OPTIONS
+RewriteRule ^(.*)$ $1 [R=200,L]
+
+# Preservar cabeçalhos de autorização
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+# Ignorar arquivos e diretórios reais
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Redirecionar tudo para index.php (front controller)
+RewriteRule ^(.*)$ index.php [QSA,L]

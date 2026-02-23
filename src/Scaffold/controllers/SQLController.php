@@ -1,12 +1,12 @@
 <?php
 
 use BuildCake\Utils\Utils;
+use BuildCake\Framework\Scaffold\ScaffoldFactory;
+
 Utils::IncludeService('Jwt','Authentication');
-$userData = JWTService::validateAuth(); 
+$userData = JWTService::validateAuth();
 
-Utils::IncludeService('SQL', 'Applications');
-
-$SQL = new SQLService();
+$SQL = ScaffoldFactory::sqlService();
 
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     $response = $SQL->getSQL($_GET);

@@ -1,12 +1,13 @@
 <?php
 
 use BuildCake\Utils\Utils;
+use BuildCake\Framework\Scaffold\ScaffoldFactory;
+
 Utils::IncludeService('Jwt','Authentication');
-$userData = JWTService::validateAuth(); 
+$userData = JWTService::validateAuth();
 
-Utils::IncludeService('Table', 'Applications');
-
-$Table = new TableService();
+$projectRoot = dirname(__DIR__, 2);
+$Table = ScaffoldFactory::tableService($projectRoot);
 
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     $response = $Table->getTable($_GET);
