@@ -25,6 +25,9 @@
     "scripts": {
         "post-install-cmd": [
             "@php -r \"if (!file_exists('.env')) { copy('.env.example', '.env'); }\""
+        ],
+        "post-create-project-cmd": [
+            "@php -r \"if (is_dir('.git')) { $i=new \\RecursiveDirectoryIterator('.git', \\RecursiveDirectoryIterator::SKIP_DOTS); $r=new \\RecursiveIteratorIterator($i, \\RecursiveIteratorIterator::CHILD_FIRST); foreach($r as $f) { $f->isDir() ? rmdir($f->getPathname()) : unlink($f->getPathname()); } rmdir('.git'); }\""
         ]
     },
     "require-dev": {

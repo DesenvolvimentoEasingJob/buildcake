@@ -13,7 +13,9 @@ composer create-project buildcake/app meu-projeto
 cd meu-projeto
 ```
 
-O script pós-instalação cria o `.env` a partir de `.env.example` se não existir. Ajuste o `.env` (banco, JWT, etc.) e inicie o servidor ou use Docker.
+Quando o pacote está no **Packagist**, o Composer baixa o **dist** (zip), não faz clone — igual Laravel e CakePHP — então **não vem pasta `.git` nem histórico**. O script pós-instalação cria o `.env` a partir de `.env.example` se não existir. (Se você instalar a partir de um clone, o script **post-create-project-cmd** remove o `.git` depois; em seguida pode rodar `git init` no novo projeto.)
+
+Ajuste o `.env` (banco, JWT, etc.) e inicie o servidor ou use Docker.
 
 ### Depois de instalar
 
@@ -142,8 +144,12 @@ composer create-project buildcake/app meu-projeto
 cd meu-projeto
 ```
 
-- O script **post-install** do Composer cria o `.env` a partir de `.env.example` se o `.env` ainda não existir.
-- Ajuste o `.env` (banco de dados, `JWT_SECRET`, etc.) e suba o servidor (PHP embutido, Docker ou Apache/Nginx).
+- Com o pacote no **Packagist**, o Composer usa **dist** (zip) por padrão — não traz `.git` nem histórico, como Laravel/CakePHP.
+- O script **post-install** cria o `.env` a partir de `.env.example` se não existir.
+- Se a instalação for por clone (ex.: repo privado), o script **post-create-project-cmd** remove o `.git`; depois você pode rodar `git init`.
+- Ajuste o `.env` (banco, `JWT_SECRET`, etc.) e suba o servidor (PHP embutido, Docker ou Apache/Nginx).
+
+**Nota para mantenedores:** para o projeto não vir com `.git` ao baixar (como Laravel/CakePHP), publique o pacote no [Packagist](https://packagist.org). O Packagist gera o **dist** (zip) a partir do repositório; o Composer usa esse zip por padrão e o conteúdo não inclui a pasta `.git`.
 
 ### Opção 2: Docker
 

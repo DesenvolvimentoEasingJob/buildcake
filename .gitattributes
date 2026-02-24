@@ -1,2 +1,59 @@
-# Auto detect text files and perform LF normalization
-* text=auto
+# ---------------------------------------------------------------------------
+# Normalização de fins de linha (evita conflitos entre Windows/Linux/Mac)
+# ---------------------------------------------------------------------------
+* text=auto eol=lf
+*.php text diff=php
+*.md text
+*.json text
+*.yml text
+*.yaml text
+*.xml text
+*.html text
+*.css text
+*.js text
+*.sh text eol=lf
+
+# Binários: não converter
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.woff binary
+*.woff2 binary
+*.ttf binary
+
+# ---------------------------------------------------------------------------
+# Export-ignore: arquivos/pastas que NÃO entram no pacote (git archive)
+# Útil para dist, deploy limpo ou quando alguém baixa o projeto como ZIP
+# ---------------------------------------------------------------------------
+
+# Controle de versão / metadados
+/.gitignore export-ignore
+/.gitattributes export-ignore
+/.github export-ignore
+
+# Documentação e changelog (opcional no deploy)
+/README.md export-ignore
+/CHANGELOG.md export-ignore
+/docs export-ignore
+
+# Testes e ferramentas de desenvolvimento
+/tests export-ignore
+/phpunit.xml export-ignore
+/phpunit.xml.dist export-ignore
+/.phpunit.result.cache export-ignore
+
+# IDEs e editores
+/.idea export-ignore
+/.vscode export-ignore
+
+# Docker e configurações locais de desenvolvimento
+/Dockerfile export-ignore
+/docker-compose.yml export-ignore
+/.dockerignore export-ignore
+/apache-vhost.conf export-ignore
+
+# Outros (dev/build)
+/.editorconfig export-ignore
+/Makefile export-ignore
