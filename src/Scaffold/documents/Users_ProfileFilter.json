@@ -1,0 +1,115 @@
+{
+    "module": "Users",
+    "controller": "ProfileFilter",
+    "controller_modified_time": 1772073730,
+    "generated_at": 1772130198,
+    "documentation": {
+        "module": "Users",
+        "controller": "ProfileFilter",
+        "endpoints": [
+            {
+                "method": "GET",
+                "path": "\/api\/Users\/ProfileFilter",
+                "description": "Retorna os filtros de perfil ativos com base nos parâmetros fornecidos.",
+                "parameters": [
+                    {
+                        "name": "filters",
+                        "type": "array",
+                        "required": false,
+                        "description": "Conjunto de filtros para buscar os perfis ativos.",
+                        "location": "query"
+                    }
+                ],
+                "responses": [
+                    {
+                        "status": 200,
+                        "description": "Lista de filtros de perfil ativos ou mensagem informando que nenhum filtro foi encontrado.",
+                        "example": {
+                            "data": []
+                        }
+                    }
+                ],
+                "authentication": true,
+                "notes": ""
+            },
+            {
+                "method": "POST",
+                "path": "\/api\/Users\/ProfileFilter",
+                "description": "Insere um novo filtro de perfil com os dados fornecidos.",
+                "parameters": [
+                    {
+                        "name": "data",
+                        "type": "object",
+                        "required": true,
+                        "description": "Dados do novo filtro de perfil a ser inserido.",
+                        "location": "body"
+                    }
+                ],
+                "responses": [
+                    {
+                        "status": 200,
+                        "description": "Dados do filtro de perfil inserido com sucesso.",
+                        "example": {
+                            "id": 1,
+                            "other_field": "value"
+                        }
+                    }
+                ],
+                "authentication": true,
+                "notes": ""
+            },
+            {
+                "method": "PUT",
+                "path": "\/api\/Users\/ProfileFilter",
+                "description": "Edita um filtro de perfil existente com os dados fornecidos.",
+                "parameters": [
+                    {
+                        "name": "data",
+                        "type": "object",
+                        "required": true,
+                        "description": "Dados do filtro de perfil a ser editado, incluindo o ID.",
+                        "location": "body"
+                    }
+                ],
+                "responses": [
+                    {
+                        "status": 200,
+                        "description": "Dados do filtro de perfil editado com sucesso.",
+                        "example": {
+                            "success": true
+                        }
+                    }
+                ],
+                "authentication": true,
+                "notes": ""
+            },
+            {
+                "method": "DELETE",
+                "path": "\/api\/Users\/ProfileFilter",
+                "description": "Remove um ou mais filtros de perfil com base nos IDs fornecidos.",
+                "parameters": [
+                    {
+                        "name": "data",
+                        "type": "object",
+                        "required": true,
+                        "description": "IDs dos filtros de perfil a serem removidos.",
+                        "location": "body"
+                    }
+                ],
+                "responses": [
+                    {
+                        "status": 200,
+                        "description": "Dados dos filtros de perfil removidos com sucesso.",
+                        "example": {
+                            "success": true
+                        }
+                    }
+                ],
+                "authentication": true,
+                "notes": ""
+            }
+        ],
+        "summary": "Controller responsável pela manipulação dos filtros de perfil, permitindo a recuperação, inserção, edição e remoção de filtros de perfil ativos."
+    },
+    "documentation_hash": "e37bc89514d11b195f368bf42ca586ee"
+}

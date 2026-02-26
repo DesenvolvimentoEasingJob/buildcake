@@ -1,0 +1,78 @@
+{
+    "module": "Assistant",
+    "controller": "FileEdit",
+    "controller_modified_time": 1772073730,
+    "generated_at": 1772130023,
+    "documentation": {
+        "module": "Assistant",
+        "controller": "FileEdit",
+        "endpoints": [
+            {
+                "method": "POST",
+                "path": "\/api\/Assistant\/FileEdit",
+                "description": "Processa um comando de edição de arquivo usando IA e salva o arquivo editado.",
+                "parameters": [
+                    {
+                        "name": "data",
+                        "type": "object",
+                        "required": true,
+                        "description": "Dados contendo 'filepath', 'content' e 'command'.",
+                        "location": "body"
+                    },
+                    {
+                        "name": "filepath",
+                        "type": "string",
+                        "required": true,
+                        "description": "Caminho do arquivo a ser editado.",
+                        "location": "body.data"
+                    },
+                    {
+                        "name": "content",
+                        "type": "string",
+                        "required": true,
+                        "description": "Conteúdo atual do arquivo.",
+                        "location": "body.data"
+                    },
+                    {
+                        "name": "command",
+                        "type": "string",
+                        "required": true,
+                        "description": "Comando de edição a ser aplicado ao arquivo.",
+                        "location": "body.data"
+                    }
+                ],
+                "responses": [
+                    {
+                        "status": 200,
+                        "description": "Arquivo editado com sucesso.",
+                        "example": {
+                            "message": "Arquivo editado com sucesso.",
+                            "path": "caminho\/do\/arquivo",
+                            "content": "conteúdo editado",
+                            "template_used": "file_edit",
+                            "model": "gpt-4o-mini"
+                        }
+                    },
+                    {
+                        "status": 400,
+                        "description": "Erro de validação dos parâmetros.",
+                        "example": {
+                            "error": "Parâmetro 'filepath' é obrigatório."
+                        }
+                    },
+                    {
+                        "status": 500,
+                        "description": "Erro interno ao processar a edição do arquivo.",
+                        "example": {
+                            "error": "OPENAI_API_KEY não configurada no .env"
+                        }
+                    }
+                ],
+                "authentication": true,
+                "notes": "O endpoint requer autenticação via JWT."
+            }
+        ],
+        "summary": "Permite editar arquivos utilizando inteligência artificial, salvando as alterações feitas."
+    },
+    "documentation_hash": "bcb4a733a1a85f77dd8ebab40b2da179"
+}

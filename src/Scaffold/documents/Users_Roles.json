@@ -1,0 +1,146 @@
+{
+    "module": "Users",
+    "controller": "Roles",
+    "controller_modified_time": 1772073730,
+    "generated_at": 1772130221,
+    "documentation": {
+        "module": "Users",
+        "controller": "Roles",
+        "endpoints": [
+            {
+                "method": "GET",
+                "path": "\/api\/Users\/Roles",
+                "description": "Retorna uma lista de roles ativas.",
+                "parameters": [
+                    {
+                        "name": "filter",
+                        "type": "string",
+                        "required": false,
+                        "description": "Filtro para buscar roles específicas.",
+                        "location": "query"
+                    }
+                ],
+                "responses": [
+                    {
+                        "status": 200,
+                        "description": "Lista de roles ativas retornada com sucesso.",
+                        "example": [
+                            {
+                                "id": 1,
+                                "name": "Admin",
+                                "is_active": true
+                            }
+                        ]
+                    }
+                ],
+                "authentication": true,
+                "notes": ""
+            },
+            {
+                "method": "POST",
+                "path": "\/api\/Users\/Roles",
+                "description": "Insere uma nova role.",
+                "parameters": [
+                    {
+                        "name": "name",
+                        "type": "string",
+                        "required": true,
+                        "description": "Nome da nova role.",
+                        "location": "body"
+                    },
+                    {
+                        "name": "is_active",
+                        "type": "boolean",
+                        "required": false,
+                        "description": "Indica se a role está ativa.",
+                        "location": "body"
+                    }
+                ],
+                "responses": [
+                    {
+                        "status": 200,
+                        "description": "Role inserida com sucesso.",
+                        "example": {
+                            "id": 2,
+                            "name": "Editor",
+                            "is_active": true
+                        }
+                    }
+                ],
+                "authentication": true,
+                "notes": ""
+            },
+            {
+                "method": "PUT",
+                "path": "\/api\/Users\/Roles",
+                "description": "Edita uma role existente.",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "type": "integer",
+                        "required": true,
+                        "description": "ID da role a ser editada.",
+                        "location": "body"
+                    },
+                    {
+                        "name": "name",
+                        "type": "string",
+                        "required": false,
+                        "description": "Novo nome da role.",
+                        "location": "body"
+                    },
+                    {
+                        "name": "is_active",
+                        "type": "boolean",
+                        "required": false,
+                        "description": "Indica se a role deve ser ativada ou desativada.",
+                        "location": "body"
+                    }
+                ],
+                "responses": [
+                    {
+                        "status": 200,
+                        "description": "Role editada com sucesso.",
+                        "example": {
+                            "id": 1,
+                            "name": "Admin Updated",
+                            "is_active": true
+                        }
+                    }
+                ],
+                "authentication": true,
+                "notes": ""
+            },
+            {
+                "method": "DELETE",
+                "path": "\/api\/Users\/Roles",
+                "description": "Remove uma ou mais roles.",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "type": "string",
+                        "required": true,
+                        "description": "ID ou IDs das roles a serem removidas, separados por vírgula.",
+                        "location": "body"
+                    }
+                ],
+                "responses": [
+                    {
+                        "status": 200,
+                        "description": "Role(s) removida(s) com sucesso.",
+                        "example": {
+                            "deleted_ids": [
+                                1,
+                                2
+                            ]
+                        }
+                    }
+                ],
+                "authentication": true,
+                "notes": ""
+            }
+        ],
+        "summary": "Gerencia as roles de usuários, permitindo listar, inserir, editar e remover roles."
+    },
+    "documentation_hash": "9a91480ce4f4bf7e464809aab7244340"
+}

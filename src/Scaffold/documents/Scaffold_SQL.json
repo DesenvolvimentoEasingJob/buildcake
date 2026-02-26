@@ -1,0 +1,114 @@
+{
+    "module": "Scaffold",
+    "controller": "SQL",
+    "controller_modified_time": 1772073730,
+    "generated_at": 1772130155,
+    "documentation": {
+        "module": "Scaffold",
+        "controller": "SQL",
+        "endpoints": [
+            {
+                "method": "GET",
+                "path": "\/api\/Scaffold\/SQL",
+                "description": "Recupera dados SQL com base nos parâmetros fornecidos na query string.",
+                "parameters": [
+                    {
+                        "name": "query",
+                        "type": "string",
+                        "required": false,
+                        "description": "Consulta SQL a ser executada.",
+                        "location": "query"
+                    }
+                ],
+                "responses": [
+                    {
+                        "status": 200,
+                        "description": "Dados processados com sucesso e retornados.",
+                        "example": {
+                            "data": []
+                        }
+                    }
+                ],
+                "authentication": true,
+                "notes": "Requer autenticação via JWT."
+            },
+            {
+                "method": "POST",
+                "path": "\/api\/Scaffold\/SQL",
+                "description": "Insere novos dados SQL com base nos dados fornecidos no corpo da requisição.",
+                "parameters": [
+                    {
+                        "name": "data",
+                        "type": "object",
+                        "required": true,
+                        "description": "Dados a serem inseridos no banco de dados.",
+                        "location": "body"
+                    }
+                ],
+                "responses": [
+                    {
+                        "status": 200,
+                        "description": "Dados processados com sucesso e inseridos.",
+                        "example": {
+                            "success": true
+                        }
+                    }
+                ],
+                "authentication": true,
+                "notes": "Requer autenticação via JWT."
+            },
+            {
+                "method": "PUT",
+                "path": "\/api\/Scaffold\/SQL",
+                "description": "Atualiza dados SQL existentes com base nos dados fornecidos no corpo da requisição.",
+                "parameters": [
+                    {
+                        "name": "data",
+                        "type": "object",
+                        "required": true,
+                        "description": "Dados a serem atualizados no banco de dados.",
+                        "location": "body"
+                    }
+                ],
+                "responses": [
+                    {
+                        "status": 200,
+                        "description": "Dados processados com sucesso e atualizados.",
+                        "example": {
+                            "success": true
+                        }
+                    }
+                ],
+                "authentication": true,
+                "notes": "Requer autenticação via JWT."
+            },
+            {
+                "method": "DELETE",
+                "path": "\/api\/Scaffold\/SQL",
+                "description": "Remove dados SQL com base nos parâmetros fornecidos na requisição.",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "type": "integer",
+                        "required": true,
+                        "description": "ID do registro a ser removido.",
+                        "location": "query"
+                    }
+                ],
+                "responses": [
+                    {
+                        "status": 200,
+                        "description": "Dados processados com sucesso e removidos.",
+                        "example": {
+                            "success": true
+                        }
+                    }
+                ],
+                "authentication": true,
+                "notes": "Requer autenticação via JWT."
+            }
+        ],
+        "summary": "Controller responsável por gerenciar operações CRUD em dados SQL."
+    },
+    "documentation_hash": "be40bf01ff0f82b5a25bcff42b05854f"
+}

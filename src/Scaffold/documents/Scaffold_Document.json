@@ -1,0 +1,61 @@
+{
+    "module": "Scaffold",
+    "controller": "Document",
+    "controller_modified_time": 1772129999,
+    "generated_at": 1772130126,
+    "documentation": {
+        "module": "Scaffold",
+        "controller": "Document",
+        "endpoints": [
+            {
+                "method": "GET",
+                "path": "\/api\/Scaffold\/Document",
+                "description": "Retorna a documentação das APIs, podendo filtrar por módulo, controller ou forçar atualização.",
+                "parameters": [
+                    {
+                        "name": "module",
+                        "type": "string",
+                        "required": false,
+                        "description": "Nome do módulo para filtrar a documentação.",
+                        "location": "query"
+                    },
+                    {
+                        "name": "controller",
+                        "type": "string",
+                        "required": false,
+                        "description": "Nome do controller para filtrar a documentação.",
+                        "location": "query"
+                    },
+                    {
+                        "name": "force_refresh",
+                        "type": "boolean",
+                        "required": false,
+                        "description": "Indica se deve forçar a atualização da documentação.",
+                        "location": "query"
+                    }
+                ],
+                "responses": [
+                    {
+                        "status": 200,
+                        "description": "Documentação das APIs retornada com sucesso.",
+                        "example": {
+                            "data": [],
+                            "version": "1.0.0",
+                            "title": "BuildCake API",
+                            "description": "Documentação completa das APIs do sistema"
+                        }
+                    },
+                    {
+                        "status": 405,
+                        "description": "Método não permitido.",
+                        "example": []
+                    }
+                ],
+                "authentication": false,
+                "notes": ""
+            }
+        ],
+        "summary": "Controller responsável por fornecer a documentação das APIs do sistema, permitindo filtragem e atualização."
+    },
+    "documentation_hash": "0664cb9037d2af06e3dc3d581e61e7c4"
+}

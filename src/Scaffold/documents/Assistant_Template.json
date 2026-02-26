@@ -1,0 +1,52 @@
+{
+    "module": "Assistant",
+    "controller": "Template",
+    "controller_modified_time": 1772073730,
+    "generated_at": 1772130045,
+    "documentation": {
+        "module": "Assistant",
+        "controller": "Template",
+        "endpoints": [
+            {
+                "method": "GET",
+                "path": "\/api\/Assistant\/Template",
+                "description": "Lista todos os templates disponíveis, podendo aplicar filtros opcionais.",
+                "parameters": [
+                    {
+                        "name": "nome",
+                        "type": "string",
+                        "required": false,
+                        "description": "Nome do template para filtrar os resultados.",
+                        "location": "query"
+                    }
+                ],
+                "responses": [
+                    {
+                        "status": 200,
+                        "description": "Lista de templates disponíveis com detalhes como nome, caminho, tamanho e data de modificação.",
+                        "example": [
+                            {
+                                "name": "template1",
+                                "filename": "template1.txt",
+                                "path": "src\/Assistant\/templates\/template1.txt",
+                                "modified_time": 1633072800,
+                                "size": 1024
+                            },
+                            {
+                                "name": "template2",
+                                "filename": "template2.txt",
+                                "path": "src\/Assistant\/templates\/template2.txt",
+                                "modified_time": 1633072900,
+                                "size": 2048
+                            }
+                        ]
+                    }
+                ],
+                "authentication": true,
+                "notes": "O usuário deve estar autenticado para acessar este endpoint."
+            }
+        ],
+        "summary": "Gerencia templates no módulo Assistant, permitindo listar templates disponíveis com opções de filtragem."
+    },
+    "documentation_hash": "986b0c6eea23a230d965b9f0d4b4362b"
+}

@@ -3,7 +3,7 @@
 use BuildCake\Utils\Utils;
 
 Utils::IncludeService('Jwt','Authentication');
-$userData = JWTService::validateAuth(); 
+//$userData = JWTService::validateAuth(); 
 
 Utils::IncludeService('Document', 'Scaffold');
 

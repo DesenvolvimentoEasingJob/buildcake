@@ -1,0 +1,44 @@
+{
+    "module": "Authentication",
+    "controller": "Logout",
+    "controller_modified_time": 1772073730,
+    "generated_at": 1772130059,
+    "documentation": {
+        "module": "Authentication",
+        "controller": "Logout",
+        "endpoints": [
+            {
+                "method": "POST",
+                "path": "\/api\/Authentication\/Logout",
+                "description": "Realiza o logout do usuário, revogando o token de autenticação.",
+                "parameters": [],
+                "responses": [
+                    {
+                        "status": 200,
+                        "description": "Logout realizado com sucesso.",
+                        "example": []
+                    },
+                    {
+                        "status": 401,
+                        "description": "Token inválido ou expirado.",
+                        "example": []
+                    },
+                    {
+                        "status": 500,
+                        "description": "Erro ao revogar o token.",
+                        "example": []
+                    },
+                    {
+                        "status": 405,
+                        "description": "Método não permitido.",
+                        "example": []
+                    }
+                ],
+                "authentication": true,
+                "notes": "O token deve ser enviado no cabeçalho Authorization como um Bearer token."
+            }
+        ],
+        "summary": "Controller responsável pela funcionalidade de logout, permitindo que o usuário revogue seu token de autenticação."
+    },
+    "documentation_hash": "05904725dfc566fae83ee6538b6248d7"
+}

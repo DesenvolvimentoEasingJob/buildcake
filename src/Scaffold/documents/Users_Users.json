@@ -1,0 +1,160 @@
+{
+    "module": "Users",
+    "controller": "Users",
+    "controller_modified_time": 1772073730,
+    "generated_at": 1772130282,
+    "documentation": {
+        "module": "Users",
+        "controller": "Users",
+        "endpoints": [
+            {
+                "method": "GET",
+                "path": "\/api\/Users\/Users",
+                "description": "Retorna uma lista de usuários ativos com base nos filtros fornecidos.",
+                "parameters": [
+                    {
+                        "name": "filters",
+                        "type": "array",
+                        "required": false,
+                        "description": "Filtros para a busca de usuários, como nome, email, etc.",
+                        "location": "query"
+                    }
+                ],
+                "responses": [
+                    {
+                        "status": 200,
+                        "description": "Lista de usuários ativos ou mensagem informando que nenhum usuário foi encontrado.",
+                        "example": {
+                            "users": [
+                                {
+                                    "id": 1,
+                                    "name": "John Doe",
+                                    "email": "john@example.com",
+                                    "is_active": true
+                                }
+                            ]
+                        }
+                    }
+                ],
+                "authentication": true,
+                "notes": ""
+            },
+            {
+                "method": "POST",
+                "path": "\/api\/Users\/Users",
+                "description": "Insere um novo usuário no sistema.",
+                "parameters": [
+                    {
+                        "name": "name",
+                        "type": "string",
+                        "required": true,
+                        "description": "Nome do usuário a ser inserido.",
+                        "location": "form"
+                    },
+                    {
+                        "name": "email",
+                        "type": "string",
+                        "required": true,
+                        "description": "Email do usuário a ser inserido.",
+                        "location": "form"
+                    },
+                    {
+                        "name": "password",
+                        "type": "string",
+                        "required": true,
+                        "description": "Senha do usuário a ser inserido, que será hashada antes de ser armazenada.",
+                        "location": "form"
+                    }
+                ],
+                "responses": [
+                    {
+                        "status": 200,
+                        "description": "Usuário inserido com sucesso, retornando os dados do usuário criado.",
+                        "example": {
+                            "id": 1,
+                            "name": "John Doe",
+                            "email": "john@example.com"
+                        }
+                    }
+                ],
+                "authentication": true,
+                "notes": ""
+            },
+            {
+                "method": "PUT",
+                "path": "\/api\/Users\/Users",
+                "description": "Edita um usuário existente com base nos dados fornecidos.",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "type": "integer",
+                        "required": true,
+                        "description": "ID do usuário a ser editado.",
+                        "location": "form"
+                    },
+                    {
+                        "name": "name",
+                        "type": "string",
+                        "required": false,
+                        "description": "Nome do usuário a ser editado.",
+                        "location": "form"
+                    },
+                    {
+                        "name": "email",
+                        "type": "string",
+                        "required": false,
+                        "description": "Email do usuário a ser editado.",
+                        "location": "form"
+                    },
+                    {
+                        "name": "password",
+                        "type": "string",
+                        "required": false,
+                        "description": "Nova senha do usuário a ser editada, que será hashada antes de ser armazenada.",
+                        "location": "form"
+                    }
+                ],
+                "responses": [
+                    {
+                        "status": 200,
+                        "description": "Usuário editado com sucesso, retornando os dados do usuário editado.",
+                        "example": {
+                            "id": 1,
+                            "name": "John Doe",
+                            "email": "john@example.com"
+                        }
+                    }
+                ],
+                "authentication": true,
+                "notes": ""
+            },
+            {
+                "method": "DELETE",
+                "path": "\/api\/Users\/Users",
+                "description": "Remove um ou mais usuários do sistema com base nos IDs fornecidos.",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "type": "array",
+                        "required": true,
+                        "description": "IDs dos usuários a serem removidos, separados por vírgula.",
+                        "location": "form"
+                    }
+                ],
+                "responses": [
+                    {
+                        "status": 200,
+                        "description": "Usuário(s) removido(s) com sucesso.",
+                        "example": {
+                            "message": "Usuário(s) removido(s) com sucesso."
+                        }
+                    }
+                ],
+                "authentication": true,
+                "notes": ""
+            }
+        ],
+        "summary": "Esta controller gerencia as operações relacionadas aos usuários, incluindo listagem, inserção, edição e remoção de usuários no sistema."
+    },
+    "documentation_hash": "528bf53bb72abffbb9e8048d931d46cf"
+}

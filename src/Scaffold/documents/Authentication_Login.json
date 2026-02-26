@@ -1,0 +1,73 @@
+{
+    "module": "Authentication",
+    "controller": "Login",
+    "controller_modified_time": 1772073730,
+    "generated_at": 1772130054,
+    "documentation": {
+        "module": "Authentication",
+        "controller": "Login",
+        "endpoints": [
+            {
+                "method": "POST",
+                "path": "\/api\/Authentication\/Login",
+                "description": "Realiza o login do usuário, validando suas credenciais e gerando tokens de acesso e refresh.",
+                "parameters": [
+                    {
+                        "name": "email",
+                        "type": "string",
+                        "required": true,
+                        "description": "Email do usuário que está tentando fazer login.",
+                        "location": "form"
+                    },
+                    {
+                        "name": "password",
+                        "type": "string",
+                        "required": true,
+                        "description": "Senha do usuário que está tentando fazer login.",
+                        "location": "form"
+                    }
+                ],
+                "responses": [
+                    {
+                        "status": 200,
+                        "description": "Login realizado com sucesso, retorna os tokens de acesso e refresh.",
+                        "example": {
+                            "accessToken": "string",
+                            "refreshToken": "string",
+                            "expiresIn": 86400,
+                            "refreshExpiresIn": 604800,
+                            "tokenType": "Bearer",
+                            "userData": [],
+                            "userAbilityRules": []
+                        }
+                    },
+                    {
+                        "status": 400,
+                        "description": "Email e senha são obrigatórios ou não podem estar vazios.",
+                        "example": {
+                            "error": "Email e senha são obrigatórios"
+                        }
+                    },
+                    {
+                        "status": 401,
+                        "description": "Credenciais inválidas.",
+                        "example": {
+                            "error": "Credenciais inválidas"
+                        }
+                    },
+                    {
+                        "status": 500,
+                        "description": "Erro ao registrar a sessão.",
+                        "example": {
+                            "error": "Erro ao registrar a sessão"
+                        }
+                    }
+                ],
+                "authentication": true,
+                "notes": "O login gera um token de acesso e um token de refresh, que devem ser usados para autenticação em requisições subsequentes."
+            }
+        ],
+        "summary": "Controller responsável pela autenticação de usuários através do login, gerando tokens para acesso seguro."
+    },
+    "documentation_hash": "83565bac8291478fea774aa0093800ed"
+}

@@ -1,0 +1,106 @@
+{
+    "module": "Scaffold",
+    "controller": "Module",
+    "controller_modified_time": 1772073730,
+    "generated_at": 1772130140,
+    "documentation": {
+        "module": "Scaffold",
+        "controller": "Module",
+        "endpoints": [
+            {
+                "method": "GET",
+                "path": "\/api\/Scaffold\/Module",
+                "description": "Recupera informações de um módulo com base nos parâmetros fornecidos na query string.",
+                "parameters": [
+                    {
+                        "name": "nome_parametro",
+                        "type": "string",
+                        "required": false,
+                        "description": "Nome do parâmetro para filtrar os módulos retornados.",
+                        "location": "query"
+                    }
+                ],
+                "responses": [
+                    {
+                        "status": 200,
+                        "description": "Retorna os dados do módulo solicitado.",
+                        "example": []
+                    }
+                ],
+                "authentication": true,
+                "notes": ""
+            },
+            {
+                "method": "POST",
+                "path": "\/api\/Scaffold\/Module",
+                "description": "Cria um novo módulo com os dados fornecidos no corpo da requisição.",
+                "parameters": [
+                    {
+                        "name": "data",
+                        "type": "object",
+                        "required": true,
+                        "description": "Dados do módulo a ser criado, enviados no corpo da requisição.",
+                        "location": "body"
+                    }
+                ],
+                "responses": [
+                    {
+                        "status": 200,
+                        "description": "Retorna os dados do módulo criado.",
+                        "example": []
+                    }
+                ],
+                "authentication": true,
+                "notes": ""
+            },
+            {
+                "method": "PUT",
+                "path": "\/api\/Scaffold\/Module",
+                "description": "Atualiza um módulo existente com os dados fornecidos no corpo da requisição.",
+                "parameters": [
+                    {
+                        "name": "data",
+                        "type": "object",
+                        "required": true,
+                        "description": "Dados do módulo a serem atualizados, enviados no corpo da requisição.",
+                        "location": "body"
+                    }
+                ],
+                "responses": [
+                    {
+                        "status": 200,
+                        "description": "Retorna os dados do módulo atualizado.",
+                        "example": []
+                    }
+                ],
+                "authentication": true,
+                "notes": ""
+            },
+            {
+                "method": "DELETE",
+                "path": "\/api\/Scaffold\/Module",
+                "description": "Remove um módulo existente com base nos dados fornecidos.",
+                "parameters": [
+                    {
+                        "name": "data",
+                        "type": "object",
+                        "required": true,
+                        "description": "Dados do módulo a ser removido, enviados no corpo da requisição.",
+                        "location": "body"
+                    }
+                ],
+                "responses": [
+                    {
+                        "status": 200,
+                        "description": "Confirmação de que o módulo foi removido.",
+                        "example": []
+                    }
+                ],
+                "authentication": true,
+                "notes": ""
+            }
+        ],
+        "summary": "Controller responsável pela manipulação de módulos, permitindo operações de criação, leitura, atualização e remoção."
+    },
+    "documentation_hash": "532b7903e3e8995c15cfea65a989dc03"
+}

@@ -1,0 +1,46 @@
+{
+    "module": "Authentication",
+    "controller": "ValidateToken",
+    "controller_modified_time": 1772073730,
+    "generated_at": 1772130077,
+    "documentation": {
+        "module": "Authentication",
+        "controller": "ValidateToken",
+        "endpoints": [
+            {
+                "method": "GET",
+                "path": "\/api\/Authentication\/ValidateToken",
+                "description": "Valida o token JWT fornecido e retorna os dados do usuário se o token for válido.",
+                "parameters": [],
+                "responses": [
+                    {
+                        "status": 200,
+                        "description": "Token válido e informações do usuário retornadas com sucesso.",
+                        "example": {
+                            "valid": true,
+                            "userData": [],
+                            "message": "Token válido"
+                        }
+                    },
+                    {
+                        "status": 401,
+                        "description": "Token inválido ou expirado.",
+                        "example": {
+                            "valid": false,
+                            "message": "Mensagem de erro"
+                        }
+                    },
+                    {
+                        "status": 405,
+                        "description": "Método não permitido para este endpoint.",
+                        "example": []
+                    }
+                ],
+                "authentication": true,
+                "notes": "Este endpoint requer um token JWT válido no cabeçalho da requisição."
+            }
+        ],
+        "summary": "Endpoint responsável por validar um token JWT e retornar os dados do usuário associado a ele."
+    },
+    "documentation_hash": "629e3759530a745ad4ff59d9d18c7e6e"
+}

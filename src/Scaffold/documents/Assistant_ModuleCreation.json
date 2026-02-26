@@ -1,0 +1,88 @@
+{
+    "module": "Assistant",
+    "controller": "ModuleCreation",
+    "controller_modified_time": 1772073730,
+    "generated_at": 1772130038,
+    "documentation": {
+        "module": "Assistant",
+        "controller": "ModuleCreation",
+        "endpoints": [
+            {
+                "method": "POST",
+                "path": "\/api\/Assistant\/ModuleCreation",
+                "description": "Este endpoint permite a criação de módulos ou a análise de comandos, dependendo da ação especificada no corpo da requisição.",
+                "parameters": [
+                    {
+                        "name": "action",
+                        "type": "string",
+                        "required": true,
+                        "description": "Ação a ser executada: 'analyze' para analisar comandos ou 'create_module' para criar um módulo.",
+                        "location": "body"
+                    },
+                    {
+                        "name": "content",
+                        "type": "string",
+                        "required": false,
+                        "description": "Conteúdo a ser analisado, utilizado se a ação for 'analyze'.",
+                        "location": "body"
+                    },
+                    {
+                        "name": "conversation",
+                        "type": "string",
+                        "required": false,
+                        "description": "Conversa completa a ser utilizada como contexto, opcional para as ações.",
+                        "location": "body"
+                    },
+                    {
+                        "name": "command_type",
+                        "type": "string",
+                        "required": false,
+                        "description": "Tipo de comando para análise, pode ser 'controller_service' ou 'module'.",
+                        "location": "body"
+                    },
+                    {
+                        "name": "task",
+                        "type": "string",
+                        "required": false,
+                        "description": "Tarefa a ser executada, utilizada se a ação for 'create_module'.",
+                        "location": "body"
+                    }
+                ],
+                "responses": [
+                    {
+                        "status": 200,
+                        "description": "Retorna os passos gerados ou confirmação da criação do módulo.",
+                        "example": {
+                            "steps": []
+                        }
+                    },
+                    {
+                        "status": 400,
+                        "description": "Retorna erro se a ação não for reconhecida ou se parâmetros obrigatórios não forem fornecidos.",
+                        "example": {
+                            "error": "Ação 'create_module' não reconhecida."
+                        }
+                    },
+                    {
+                        "status": 500,
+                        "description": "Erro interno do servidor, geralmente relacionado à configuração do serviço.",
+                        "example": {
+                            "error": "OPENAI_API_KEY não configurada no .env"
+                        }
+                    },
+                    {
+                        "status": 404,
+                        "description": "Retorna erro se o template necessário não for encontrado.",
+                        "example": {
+                            "error": "Template não encontrado: schema_steps.txt"
+                        }
+                    }
+                ],
+                "authentication": true,
+                "notes": "O endpoint requer autenticação via JWT."
+            }
+        ],
+        "summary": "A controller ModuleCreation gerencia a criação de módulos e a análise de comandos, utilizando serviços de inteligência artificial para gerar respostas e estruturas de módulos."
+    },
+    "documentation_hash": "a36a827096bf23cdd28a7a3d5ff2acef"
+}

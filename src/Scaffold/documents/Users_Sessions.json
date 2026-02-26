@@ -1,0 +1,145 @@
+{
+    "module": "Users",
+    "controller": "Sessions",
+    "controller_modified_time": 1772073730,
+    "generated_at": 1772130242,
+    "documentation": {
+        "module": "Users",
+        "controller": "Sessions",
+        "endpoints": [
+            {
+                "method": "GET",
+                "path": "\/api\/Users\/Sessions",
+                "description": "Retorna uma lista de sessões ativas com base nos filtros fornecidos.",
+                "parameters": [
+                    {
+                        "name": "filter",
+                        "type": "string",
+                        "required": false,
+                        "description": "Filtros para buscar sessões ativas.",
+                        "location": "query"
+                    }
+                ],
+                "responses": [
+                    {
+                        "status": 200,
+                        "description": "Lista de sessões ativas retornada com sucesso.",
+                        "example": {
+                            "sessions": [
+                                {
+                                    "id": 1,
+                                    "name": "Session 1",
+                                    "is_active": true
+                                }
+                            ]
+                        }
+                    }
+                ],
+                "authentication": true,
+                "notes": ""
+            },
+            {
+                "method": "POST",
+                "path": "\/api\/Users\/Sessions",
+                "description": "Insere uma nova sessão com os dados fornecidos.",
+                "parameters": [
+                    {
+                        "name": "name",
+                        "type": "string",
+                        "required": true,
+                        "description": "Nome da nova sessão.",
+                        "location": "form"
+                    },
+                    {
+                        "name": "is_active",
+                        "type": "boolean",
+                        "required": true,
+                        "description": "Indica se a sessão está ativa.",
+                        "location": "form"
+                    }
+                ],
+                "responses": [
+                    {
+                        "status": 200,
+                        "description": "Sessão inserida com sucesso.",
+                        "example": {
+                            "id": 1,
+                            "name": "Session 1",
+                            "is_active": true
+                        }
+                    }
+                ],
+                "authentication": true,
+                "notes": ""
+            },
+            {
+                "method": "PUT",
+                "path": "\/api\/Users\/Sessions",
+                "description": "Edita uma sessão existente com os dados fornecidos.",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "type": "integer",
+                        "required": true,
+                        "description": "ID da sessão a ser editada.",
+                        "location": "form"
+                    },
+                    {
+                        "name": "name",
+                        "type": "string",
+                        "required": false,
+                        "description": "Novo nome da sessão.",
+                        "location": "form"
+                    },
+                    {
+                        "name": "is_active",
+                        "type": "boolean",
+                        "required": false,
+                        "description": "Indica se a sessão deve ser ativa.",
+                        "location": "form"
+                    }
+                ],
+                "responses": [
+                    {
+                        "status": 200,
+                        "description": "Sessão editada com sucesso.",
+                        "example": {
+                            "id": 1,
+                            "name": "Updated Session",
+                            "is_active": true
+                        }
+                    }
+                ],
+                "authentication": true,
+                "notes": ""
+            },
+            {
+                "method": "DELETE",
+                "path": "\/api\/Users\/Sessions",
+                "description": "Remove uma ou mais sessões com base nos IDs fornecidos.",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "type": "string",
+                        "required": true,
+                        "description": "ID ou IDs das sessões a serem removidas, separados por vírgula.",
+                        "location": "form"
+                    }
+                ],
+                "responses": [
+                    {
+                        "status": 200,
+                        "description": "Sessões removidas com sucesso.",
+                        "example": {
+                            "message": "Sessões removidas com sucesso."
+                        }
+                    }
+                ],
+                "authentication": true,
+                "notes": ""
+            }
+        ],
+        "summary": "A controller de Sessions gerencia as operações de criação, leitura, atualização e exclusão de sessões de usuários."
+    },
+    "documentation_hash": "24c360670d73df0b76f7fde051c98ba2"
+}

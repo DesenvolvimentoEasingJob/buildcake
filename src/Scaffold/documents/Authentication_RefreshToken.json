@@ -1,0 +1,65 @@
+{
+    "module": "Authentication",
+    "controller": "RefreshToken",
+    "controller_modified_time": 1772073730,
+    "generated_at": 1772130069,
+    "documentation": {
+        "module": "Authentication",
+        "controller": "RefreshToken",
+        "endpoints": [
+            {
+                "method": "POST",
+                "path": "\/api\/Authentication\/RefreshToken",
+                "description": "Atualiza os tokens de acesso e refresh utilizando um refresh token válido.",
+                "parameters": [
+                    {
+                        "name": "refreshToken",
+                        "type": "string",
+                        "required": true,
+                        "description": "Token de refresh que será utilizado para gerar novos tokens de acesso.",
+                        "location": "body"
+                    }
+                ],
+                "responses": [
+                    {
+                        "status": 200,
+                        "description": "Tokens atualizados com sucesso.",
+                        "example": {
+                            "accessToken": "string",
+                            "refreshToken": "string",
+                            "expiresIn": 86400,
+                            "refreshExpiresIn": 604800,
+                            "tokenType": "Bearer",
+                            "userData": [],
+                            "userAbilityRules": []
+                        }
+                    },
+                    {
+                        "status": 400,
+                        "description": "Erro de validação, refresh token é obrigatório.",
+                        "example": []
+                    },
+                    {
+                        "status": 401,
+                        "description": "Refresh token inválido ou expirado.",
+                        "example": []
+                    },
+                    {
+                        "status": 500,
+                        "description": "Erro ao atualizar a sessão.",
+                        "example": []
+                    },
+                    {
+                        "status": 405,
+                        "description": "Método não permitido.",
+                        "example": []
+                    }
+                ],
+                "authentication": true,
+                "notes": "O refresh token pode ser enviado no corpo da requisição, como um parâmetro de formulário ou no cabeçalho Authorization."
+            }
+        ],
+        "summary": "Esta controller é responsável pela atualização de tokens de autenticação utilizando um refresh token válido."
+    },
+    "documentation_hash": "eab8082ea58228286f53ff1511081d6b"
+}

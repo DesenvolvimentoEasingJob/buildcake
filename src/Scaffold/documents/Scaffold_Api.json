@@ -1,0 +1,146 @@
+{
+    "module": "Scaffold",
+    "controller": "Api",
+    "controller_modified_time": 1772073730,
+    "generated_at": 1772130112,
+    "documentation": {
+        "module": "Scaffold",
+        "controller": "Api",
+        "endpoints": [
+            {
+                "method": "GET",
+                "path": "\/api\/Scaffold\/Api",
+                "description": "Recupera dados através de parâmetros fornecidos na query string.",
+                "parameters": [
+                    {
+                        "name": "parametro1",
+                        "type": "string",
+                        "required": false,
+                        "description": "Descrição do primeiro parâmetro que pode ser utilizado para filtrar os dados.",
+                        "location": "query"
+                    },
+                    {
+                        "name": "parametro2",
+                        "type": "int",
+                        "required": false,
+                        "description": "Descrição do segundo parâmetro que pode ser utilizado para filtrar os dados.",
+                        "location": "query"
+                    }
+                ],
+                "responses": [
+                    {
+                        "status": 200,
+                        "description": "Dados processados com sucesso e retornados como resposta.",
+                        "example": {
+                            "data": []
+                        }
+                    }
+                ],
+                "authentication": false,
+                "notes": ""
+            },
+            {
+                "method": "POST",
+                "path": "\/api\/Scaffold\/Api",
+                "description": "Cria novos dados com base nos parâmetros fornecidos no corpo da requisição.",
+                "parameters": [
+                    {
+                        "name": "parametro1",
+                        "type": "string",
+                        "required": true,
+                        "description": "Descrição do primeiro parâmetro necessário para a criação dos dados.",
+                        "location": "body"
+                    },
+                    {
+                        "name": "parametro2",
+                        "type": "int",
+                        "required": true,
+                        "description": "Descrição do segundo parâmetro necessário para a criação dos dados.",
+                        "location": "body"
+                    }
+                ],
+                "responses": [
+                    {
+                        "status": 200,
+                        "description": "Dados processados com sucesso e novos dados criados.",
+                        "example": {
+                            "id": 1,
+                            "parametro1": "valor1",
+                            "parametro2": 2
+                        }
+                    }
+                ],
+                "authentication": false,
+                "notes": ""
+            },
+            {
+                "method": "PUT",
+                "path": "\/api\/Scaffold\/Api",
+                "description": "Atualiza dados existentes com base nos parâmetros fornecidos no corpo da requisição.",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "type": "int",
+                        "required": true,
+                        "description": "ID do dado que deve ser atualizado.",
+                        "location": "body"
+                    },
+                    {
+                        "name": "parametro1",
+                        "type": "string",
+                        "required": false,
+                        "description": "Descrição do primeiro parâmetro que pode ser atualizado.",
+                        "location": "body"
+                    },
+                    {
+                        "name": "parametro2",
+                        "type": "int",
+                        "required": false,
+                        "description": "Descrição do segundo parâmetro que pode ser atualizado.",
+                        "location": "body"
+                    }
+                ],
+                "responses": [
+                    {
+                        "status": 200,
+                        "description": "Dados processados com sucesso e dados atualizados.",
+                        "example": {
+                            "id": 1,
+                            "parametro1": "novo_valor1",
+                            "parametro2": 3
+                        }
+                    }
+                ],
+                "authentication": false,
+                "notes": ""
+            },
+            {
+                "method": "DELETE",
+                "path": "\/api\/Scaffold\/Api",
+                "description": "Remove dados existentes com base no ID fornecido no corpo da requisição.",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "type": "int",
+                        "required": true,
+                        "description": "ID do dado que deve ser removido.",
+                        "location": "body"
+                    }
+                ],
+                "responses": [
+                    {
+                        "status": 200,
+                        "description": "Dados processados com sucesso e dados removidos.",
+                        "example": {
+                            "message": "Dado removido com sucesso."
+                        }
+                    }
+                ],
+                "authentication": false,
+                "notes": ""
+            }
+        ],
+        "summary": "Controller responsável por gerenciar operações CRUD para a entidade Scaffold através de uma API REST."
+    },
+    "documentation_hash": "d94bb0b26da9fca45b5502bb28ddf35e"
+}

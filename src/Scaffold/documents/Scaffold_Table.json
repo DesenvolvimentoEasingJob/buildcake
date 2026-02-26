@@ -1,0 +1,106 @@
+{
+    "module": "Scaffold",
+    "controller": "Table",
+    "controller_modified_time": 1772073730,
+    "generated_at": 1772130184,
+    "documentation": {
+        "module": "Scaffold",
+        "controller": "Table",
+        "endpoints": [
+            {
+                "method": "GET",
+                "path": "\/api\/Scaffold\/Table",
+                "description": "Recupera dados da tabela com base nos parâmetros fornecidos na query string.",
+                "parameters": [
+                    {
+                        "name": "nome_parametro",
+                        "type": "string",
+                        "required": false,
+                        "description": "Parâmetro opcional para filtrar os dados retornados.",
+                        "location": "query"
+                    }
+                ],
+                "responses": [
+                    {
+                        "status": 200,
+                        "description": "Dados da tabela retornados com sucesso.",
+                        "example": []
+                    }
+                ],
+                "authentication": true,
+                "notes": ""
+            },
+            {
+                "method": "POST",
+                "path": "\/api\/Scaffold\/Table",
+                "description": "Insere novos dados na tabela com base no payload fornecido.",
+                "parameters": [
+                    {
+                        "name": "data",
+                        "type": "object",
+                        "required": true,
+                        "description": "Objeto contendo os dados a serem inseridos na tabela.",
+                        "location": "body"
+                    }
+                ],
+                "responses": [
+                    {
+                        "status": 200,
+                        "description": "Dados inseridos com sucesso.",
+                        "example": []
+                    }
+                ],
+                "authentication": true,
+                "notes": ""
+            },
+            {
+                "method": "PUT",
+                "path": "\/api\/Scaffold\/Table",
+                "description": "Atualiza dados existentes na tabela com base no payload fornecido.",
+                "parameters": [
+                    {
+                        "name": "data",
+                        "type": "object",
+                        "required": true,
+                        "description": "Objeto contendo os dados a serem atualizados na tabela.",
+                        "location": "body"
+                    }
+                ],
+                "responses": [
+                    {
+                        "status": 200,
+                        "description": "Dados atualizados com sucesso.",
+                        "example": []
+                    }
+                ],
+                "authentication": true,
+                "notes": ""
+            },
+            {
+                "method": "DELETE",
+                "path": "\/api\/Scaffold\/Table",
+                "description": "Remove dados da tabela com base nos parâmetros fornecidos.",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "type": "string",
+                        "required": true,
+                        "description": "Identificador do registro a ser removido.",
+                        "location": "query"
+                    }
+                ],
+                "responses": [
+                    {
+                        "status": 200,
+                        "description": "Dados removidos com sucesso.",
+                        "example": []
+                    }
+                ],
+                "authentication": true,
+                "notes": ""
+            }
+        ],
+        "summary": "Controller responsável por gerenciar operações CRUD na tabela, permitindo a recuperação, inserção, atualização e remoção de dados."
+    },
+    "documentation_hash": "3ba14f58ae2d870afbb2de8b1193e564"
+}

@@ -1,0 +1,76 @@
+{
+    "module": "Assistant",
+    "controller": "Assistant",
+    "controller_modified_time": 1772073730,
+    "generated_at": 1772130013,
+    "documentation": {
+        "module": "Assistant",
+        "controller": "Assistant",
+        "endpoints": [
+            {
+                "method": "POST",
+                "path": "\/api\/Assistant\/Assistant",
+                "description": "Processa uma pergunta usando IA (OpenAI) e retorna a resposta gerada.",
+                "parameters": [
+                    {
+                        "name": "question",
+                        "type": "string",
+                        "required": true,
+                        "description": "A pergunta que será enviada para a IA.",
+                        "location": "body"
+                    },
+                    {
+                        "name": "template",
+                        "type": "string",
+                        "required": false,
+                        "description": "Nome do template a ser utilizado (sem extensão).",
+                        "location": "body"
+                    },
+                    {
+                        "name": "moduleData",
+                        "type": "object",
+                        "required": false,
+                        "description": "Dados adicionais que podem ser utilizados no template.",
+                        "location": "body"
+                    },
+                    {
+                        "name": "errorMessage",
+                        "type": "string",
+                        "required": false,
+                        "description": "Mensagem de erro que pode ser utilizada no template.",
+                        "location": "body"
+                    }
+                ],
+                "responses": [
+                    {
+                        "status": 200,
+                        "description": "Dados processados com sucesso e resposta da IA retornada.",
+                        "example": {
+                            "response": "Resposta gerada pela IA.",
+                            "template_used": "nome_do_template",
+                            "model": "gpt-4o-mini"
+                        }
+                    },
+                    {
+                        "status": 400,
+                        "description": "Erro de validação, parâmetro 'question' é obrigatório.",
+                        "example": {
+                            "error": "Parâmetro 'question' é obrigatório."
+                        }
+                    },
+                    {
+                        "status": 500,
+                        "description": "Erro interno, API key não configurada ou erro na chamada.",
+                        "example": {
+                            "error": "OPENAI_API_KEY não configurada no .env"
+                        }
+                    }
+                ],
+                "authentication": true,
+                "notes": ""
+            }
+        ],
+        "summary": "Controller que gerencia interações com a IA, permitindo o envio de perguntas e recebimento de respostas."
+    },
+    "documentation_hash": "54dfbdb81ccd89a2b4a9b0fe2e27c631"
+}

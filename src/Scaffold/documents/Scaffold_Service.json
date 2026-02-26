@@ -1,0 +1,127 @@
+{
+    "module": "Scaffold",
+    "controller": "Service",
+    "controller_modified_time": 1772073730,
+    "generated_at": 1772130171,
+    "documentation": {
+        "module": "Scaffold",
+        "controller": "Service",
+        "endpoints": [
+            {
+                "method": "GET",
+                "path": "\/api\/Scaffold\/Service",
+                "description": "Recupera informações sobre serviços com base nos parâmetros fornecidos na consulta.",
+                "parameters": [
+                    {
+                        "name": "nome_parametro",
+                        "type": "string",
+                        "required": false,
+                        "description": "Nome do serviço a ser filtrado.",
+                        "location": "query"
+                    }
+                ],
+                "responses": [
+                    {
+                        "status": 200,
+                        "description": "Retorna os dados do serviço solicitado.",
+                        "example": []
+                    }
+                ],
+                "authentication": true,
+                "notes": "É necessário estar autenticado para acessar este endpoint."
+            },
+            {
+                "method": "POST",
+                "path": "\/api\/Scaffold\/Service",
+                "description": "Cria um novo serviço com os dados fornecidos no corpo da requisição.",
+                "parameters": [
+                    {
+                        "name": "nome_servico",
+                        "type": "string",
+                        "required": true,
+                        "description": "Nome do novo serviço a ser criado.",
+                        "location": "body"
+                    },
+                    {
+                        "name": "descricao_servico",
+                        "type": "string",
+                        "required": false,
+                        "description": "Descrição do novo serviço.",
+                        "location": "body"
+                    }
+                ],
+                "responses": [
+                    {
+                        "status": 200,
+                        "description": "Retorna os dados do serviço criado.",
+                        "example": []
+                    }
+                ],
+                "authentication": true,
+                "notes": "É necessário estar autenticado para acessar este endpoint."
+            },
+            {
+                "method": "PUT",
+                "path": "\/api\/Scaffold\/Service",
+                "description": "Atualiza as informações de um serviço existente com os dados fornecidos no corpo da requisição.",
+                "parameters": [
+                    {
+                        "name": "id_servico",
+                        "type": "integer",
+                        "required": true,
+                        "description": "ID do serviço a ser atualizado.",
+                        "location": "body"
+                    },
+                    {
+                        "name": "nome_servico",
+                        "type": "string",
+                        "required": false,
+                        "description": "Novo nome do serviço.",
+                        "location": "body"
+                    },
+                    {
+                        "name": "descricao_servico",
+                        "type": "string",
+                        "required": false,
+                        "description": "Nova descrição do serviço.",
+                        "location": "body"
+                    }
+                ],
+                "responses": [
+                    {
+                        "status": 200,
+                        "description": "Retorna os dados do serviço atualizado.",
+                        "example": []
+                    }
+                ],
+                "authentication": true,
+                "notes": "É necessário estar autenticado para acessar este endpoint."
+            },
+            {
+                "method": "DELETE",
+                "path": "\/api\/Scaffold\/Service",
+                "description": "Remove um serviço existente com base no ID fornecido.",
+                "parameters": [
+                    {
+                        "name": "id_servico",
+                        "type": "integer",
+                        "required": true,
+                        "description": "ID do serviço a ser removido.",
+                        "location": "body"
+                    }
+                ],
+                "responses": [
+                    {
+                        "status": 200,
+                        "description": "Confirmação de que o serviço foi removido.",
+                        "example": []
+                    }
+                ],
+                "authentication": true,
+                "notes": "É necessário estar autenticado para acessar este endpoint."
+            }
+        ],
+        "summary": "Esta controller gerencia as operações CRUD para serviços, permitindo a criação, leitura, atualização e exclusão de serviços."
+    },
+    "documentation_hash": "df34435bb808876f83ade62165b9a591"
+}

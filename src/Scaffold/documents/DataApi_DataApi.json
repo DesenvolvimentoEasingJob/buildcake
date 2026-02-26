@@ -1,0 +1,111 @@
+{
+    "module": "DataApi",
+    "controller": "DataApi",
+    "controller_modified_time": 1772073730,
+    "generated_at": 1772130092,
+    "documentation": {
+        "module": "DataApi",
+        "controller": "DataApi",
+        "endpoints": [
+            {
+                "method": "GET",
+                "path": "\/api\/DataApi\/DataApi",
+                "description": "Recupera dados de uma tabela específica com base nos filtros fornecidos.",
+                "parameters": [
+                    {
+                        "name": "table",
+                        "type": "string",
+                        "required": true,
+                        "description": "Nome da tabela a ser consultada.",
+                        "location": "query"
+                    }
+                ],
+                "responses": [
+                    {
+                        "status": 200,
+                        "description": "Dados processados com sucesso.",
+                        "example": []
+                    },
+                    {
+                        "status": 404,
+                        "description": "Nenhum(a) registro encontrado na tabela especificada.",
+                        "example": []
+                    }
+                ],
+                "authentication": true,
+                "notes": ""
+            },
+            {
+                "method": "POST",
+                "path": "\/api\/DataApi\/DataApi",
+                "description": "Insere novos dados na tabela especificada.",
+                "parameters": [
+                    {
+                        "name": "data",
+                        "type": "object",
+                        "required": true,
+                        "description": "Dados a serem inseridos na tabela.",
+                        "location": "body"
+                    }
+                ],
+                "responses": [
+                    {
+                        "status": 200,
+                        "description": "Dados inseridos com sucesso.",
+                        "example": []
+                    }
+                ],
+                "authentication": true,
+                "notes": ""
+            },
+            {
+                "method": "PUT",
+                "path": "\/api\/DataApi\/DataApi",
+                "description": "Atualiza dados existentes na tabela especificada.",
+                "parameters": [
+                    {
+                        "name": "data",
+                        "type": "object",
+                        "required": true,
+                        "description": "Dados a serem atualizados, incluindo o ID do registro.",
+                        "location": "body"
+                    }
+                ],
+                "responses": [
+                    {
+                        "status": 200,
+                        "description": "Dados processados com sucesso.",
+                        "example": []
+                    }
+                ],
+                "authentication": true,
+                "notes": ""
+            },
+            {
+                "method": "DELETE",
+                "path": "\/api\/DataApi\/DataApi",
+                "description": "Remove dados da tabela especificada com base no ID fornecido.",
+                "parameters": [
+                    {
+                        "name": "data",
+                        "type": "object",
+                        "required": true,
+                        "description": "IDs dos registros a serem removidos.",
+                        "location": "body"
+                    }
+                ],
+                "responses": [
+                    {
+                        "status": 200,
+                        "description": "Dados processados com sucesso.",
+                        "example": []
+                    }
+                ],
+                "authentication": true,
+                "notes": ""
+            }
+        ],
+        "summary": "Controller responsável por gerenciar operações CRUD em uma tabela específica, com validação de autenticação via JWT."
+    },
+    "documentation_hash": "70e270aaf01d9083d604ef1ca7a3230f"
+}
