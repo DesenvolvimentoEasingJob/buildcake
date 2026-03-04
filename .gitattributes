@@ -48,12 +48,6 @@
 /.idea export-ignore
 /.vscode export-ignore
 
-# Docker e configurações locais de desenvolvimento
-/Dockerfile export-ignore
-/docker-compose.yml export-ignore
-/.dockerignore export-ignore
-/apache-vhost.conf export-ignore
-
 # Outros (dev/build)
 /.editorconfig export-ignore
 /Makefile export-ignore
